@@ -1,0 +1,140 @@
+﻿{
+    "version": "1.0",
+    "created": "8\/12\/2025 2:05:08 PM",
+    "configurations": [
+        {
+            "name": "Super Fast Build",
+            "description": "Build veloce senza clean per sviluppo rapido",
+            "shortcut": "F",
+            "configuration": "Debug",
+            "verbose": false,
+            "cleanFirst": false,
+            "showOutput": false,
+            "enabled": true,
+            "icon": "fast",
+            "category": "Development",
+            "projects": [
+                {
+                    "projectPath": "S:\\work\\Source\\Modules\\OvwPackages.groupproj",
+                    "targets": "make",
+                    "description": "Packages principali"
+                },
+                {
+                    "projectPath": "S:\\work\\Source\\Modules\\OvwModules.groupproj",
+                    "targets": "make",
+                    "description": "Moduli applicazione"
+                }
+            ]
+        },
+        {
+            "name": "Normal Build",
+            "description": "Build completo con clean per rilascio",
+            "shortcut": "N",
+            "configuration": "Debug",
+            "verbose": false,
+            "cleanFirst": true,
+            "showOutput": false,
+            "enabled": true,
+            "icon": "build",
+            "category": "Development",
+            "projects": [
+                {
+                    "projectPath": "S:\\work\\Source\\Modules\\OvwPackages.groupproj",
+                    "targets": "Clean;Build",
+                    "description": "Packages principali"
+                },
+                {
+                    "projectPath": "S:\\work\\Source\\Modules\\OvwModules.groupproj",
+                    "targets": "Clean;Build",
+                    "description": "Moduli applicazione"
+                }
+            ]
+        },
+        {
+            "name": "Build Package",
+            "description": "Compila solo i packages",
+            "shortcut": "P",
+            "configuration": "Debug",
+            "verbose": false,
+            "cleanFirst": true,
+            "showOutput": false,
+            "enabled": true,
+            "icon": "package",
+            "category": "Components",
+            "projects": [
+                {
+                    "projectPath": "S:\\work\\Source\\Modules\\OvwPackages.groupproj",
+                    "targets": "Clean;Build",
+                    "description": "Packages Delphi"
+                }
+            ]
+        },
+        {
+            "name": "Build Modules",
+            "description": "Compila solo i moduli applicazione",
+            "shortcut": "M",
+            "configuration": "Debug",
+            "verbose": false,
+            "cleanFirst": true,
+            "showOutput": false,
+            "enabled": true,
+            "icon": "module",
+            "category": "Components",
+            "projects": [
+                {
+                    "projectPath": "S:\\work\\Source\\Modules\\OvwModules.groupproj",
+                    "targets": "Clean;Build",
+                    "description": "Moduli applicazione"
+                }
+            ]
+        },
+        {
+            "name": "Build Services",
+            "description": "Compila tutti i servizi",
+            "shortcut": "S",
+            "configuration": "Debug",
+            "verbose": false,
+            "cleanFirst": true,
+            "showOutput": false,
+            "enabled": true,
+            "icon": "service",
+            "category": "Services",
+            "projects": [
+                {
+                    "projectPath": "s:\\work\\Source\\WebServices\\OvwServices\\AppBosServices.dproj",
+                    "targets": "make",
+                    "description": "Servizio AppBos"
+                },
+                {
+                    "projectPath": "s:\\work\\Source\\WebServices\\OvwServices\\BosServices.dproj",
+                    "targets": "Clean;Build",
+                    "description": "Servizio ISAPI"
+                }
+            ]
+        },
+        {
+            "name": "Release Build",
+            "description": "Build completo in modalità Release",
+            "shortcut": "R",
+            "configuration": "Release",
+            "verbose": false,
+            "cleanFirst": true,
+            "showOutput": false,
+            "enabled": true,
+            "icon": "release",
+            "category": "Release",
+            "projects": [
+                {
+                    "projectPath": "S:\\work\\Source\\Modules\\OvwPackages.groupproj",
+                    "targets": "Clean;Build",
+                    "description": "Packages Release"
+                },
+                {
+                    "projectPath": "S:\\work\\Source\\Modules\\OvwModules.groupproj",
+                    "targets": "Clean;Build",
+                    "description": "Moduli Release"
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,217 @@
+unit XMLMultirefConverter;
+
+interface
+
+uses
+  System.SysUtils, System.Classes, Xml.XMLDoc, Xml.XMLIntf, System.Generics.Collections;
+
+type
+  TMultirefResolver = class
+  private
+    FReferences: TDictionary<string, IXMLNode>;
+    procedure CollectReferences(Node: IXMLNode);
+    procedure ResolveReferences(Node: IXMLNode);
+    function GetRefId(Node: IXMLNode): string;
+    function GetHrefId(Node: IXMLNode): string;
+    procedure CopyNodeContent(Source, Dest: IXMLNode);
+  public
+    constructor Create;
+    destructor Destroy; override;
+    function ConvertXML(const InputXML: string): string;
+  end;
+
+function ResolveMultiref(const XMLString: string): string;
+
+implementation
+
+function ResolveMultiref(const XMLString: string): string;
+var
+  Resolver: TMultirefResolver;
+begin
+  Resolver := TMultirefResolver.Create;
+  try
+    Result := Resolver.ConvertXML(XMLString);
+  finally
+    Resolver.Free;
+  end;
+end;
+
+{ TMultirefResolver }
+
+constructor TMultirefResolver.Create;
+begin
+  inherited;
+  FReferences := TDictionary<string, IXMLNode>.Create;
+end;
+
+destructor TMultirefResolver.Destroy;
+begin
+  FReferences.Free;
+  inherited;
+end;
+
+function TMultirefResolver.ConvertXML(const InputXML: string): string;
+var
+  XMLDoc: IXMLDocument;
+  OutputStream: TStringStream;
+begin
+  XMLDoc := TXMLDocument.Create(nil);
+  try
+    XMLDoc.LoadFromXML(InputXML);
+    XMLDoc.Active := True;
+
+    // Prima passata: raccogliere tutti i nodi con id
+    FReferences.Clear;
+    CollectReferences(XMLDoc.DocumentElement);
+
+    // Seconda passata: risolvere tutti gli href
+    ResolveReferences(XMLDoc.DocumentElement);
+
+    // Rimuovere i nodi di riferimento originali (quelli con solo id)
+    RemoveReferenceNodes(XMLDoc.DocumentElement);
+
+    // Convertire in stringa
+    OutputStream := TStringStream.Create('', TEncoding.UTF8);
+    try
+      XMLDoc.SaveToStream(OutputStream);
+      Result := OutputStream.DataString;
+    finally
+      OutputStream.Free;
+    end;
+  except
+    on E: Exception do
+      raise Exception.Create('Errore nella conversione XML: ' + E.Message);
+  end;
+end;
+
+procedure TMultirefResolver.CollectReferences(Node: IXMLNode);
+var
+  I: Integer;
+  RefId: string;
+begin
+  if Node = nil then
+    Exit;
+
+  // Cercare attributo id
+  RefId := GetRefId(Node);
+  if RefId <> '' then
+  begin
+    // Salvare il riferimento
+    if not FReferences.ContainsKey(RefId) then
+      FReferences.Add(RefId, Node);
+  end;
+
+  // Ricorsione sui figli
+  for I := 0 to Node.ChildNodes.Count - 1 do
+    CollectReferences(Node.ChildNodes[I]);
+end;
+
+procedure TMultirefResolver.ResolveReferences(Node: IXMLNode);
+var
+  I: Integer;
+  HrefId: string;
+  RefNode: IXMLNode;
+begin
+  if Node = nil then
+    Exit;
+
+  // Verificare se questo nodo ha un href
+  HrefId := GetHrefId(Node);
+  if HrefId <> '' then
+  begin
+    // Trovare il nodo referenziato
+    if FReferences.TryGetValue(HrefId, RefNode) then
+    begin
+      // Copiare il contenuto del nodo referenziato
+      CopyNodeContent(RefNode, Node);
+      // Rimuovere l'attributo href
+      Node.AttributeNodes.Delete('href');
+    end;
+  end;
+
+  // Ricorsione sui figli
+  for I := 0 to Node.ChildNodes.Count - 1 do
+    ResolveReferences(Node.ChildNodes[I]);
+end;
+
+function TMultirefResolver.GetRefId(Node: IXMLNode): string;
+var
+  IdAttr: IXMLNode;
+begin
+  Result := '';
+  IdAttr := Node.AttributeNodes.FindNode('id');
+  if IdAttr <> nil then
+    Result := IdAttr.Text;
+end;
+
+function TMultirefResolver.GetHrefId(Node: IXMLNode): string;
+var
+  HrefAttr: IXMLNode;
+begin
+  Result := '';
+  HrefAttr := Node.AttributeNodes.FindNode('href');
+  if HrefAttr <> nil then
+  begin
+    Result := HrefAttr.Text;
+    // Rimuovere il # iniziale se presente
+    if (Length(Result) > 0) and (Result[1] = '#') then
+      Result := Copy(Result, 2, Length(Result) - 1);
+  end;
+end;
+
+procedure TMultirefResolver.CopyNodeContent(Source, Dest: IXMLNode);
+var
+  I: Integer;
+  AttrNode: IXMLNode;
+  ChildNode: IXMLNode;
+begin
+  // Copiare gli attributi (eccetto id)
+  for I := 0 to Source.AttributeNodes.Count - 1 do
+  begin
+    AttrNode := Source.AttributeNodes[I];
+    if not SameText(AttrNode.NodeName, 'id') then
+      Dest.Attributes[AttrNode.NodeName] := AttrNode.NodeValue;
+  end;
+
+  // Copiare il testo del nodo se presente
+  if Source.IsTextElement then
+    Dest.NodeValue := Source.NodeValue;
+
+  // Copiare i nodi figli
+  for I := 0 to Source.ChildNodes.Count - 1 do
+  begin
+    ChildNode := Dest.AddChild(Source.ChildNodes[I].NodeName);
+    CopyNodeContent(Source.ChildNodes[I], ChildNode);
+  end;
+end;
+
+procedure RemoveReferenceNodes(Node: IXMLNode);
+var
+  I: Integer;
+  ChildNode: IXMLNode;
+  HasOnlyId: Boolean;
+begin
+  if Node = nil then
+    Exit;
+
+  I := 0;
+  while I < Node.ChildNodes.Count do
+  begin
+    ChildNode := Node.ChildNodes[I];
+
+    // Verificare se il nodo ha solo un attributo id e nessun contenuto utile
+    HasOnlyId := (ChildNode.AttributeNodes.FindNode('id') <> nil) and
+                 (ChildNode.ChildNodes.Count = 0) and
+                 (Trim(ChildNode.Text) = '');
+
+    if HasOnlyId then
+      Node.ChildNodes.Delete(I)
+    else
+    begin
+      RemoveReferenceNodes(ChildNode);
+      Inc(I);
+    end;
+  end;
+end;
+
+end.

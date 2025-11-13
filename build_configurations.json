@@ -1,0 +1,150 @@
+{
+  "version": "1.0",
+  "created": "11/08/2025 21:30:00",
+  "configurations": [
+    {
+      "name": "Super Fast Build",
+      "description": "Build veloce senza clean per sviluppo rapido",
+      "shortcut": "F",
+      "configuration": "Debug",
+      "verbose": false,
+      "cleanFirst": false,
+      "showOutput": false,
+      "enabled": true,
+      "icon": "fast",
+      "category": "Development",
+      "projects": [
+        {
+          "projectPath": "S:\\work\\Source\\Modules\\OvwPackages.groupproj",
+          "targets": "make",
+          "description": "Packages principali"
+        },
+        {
+          "projectPath": "S:\\work\\Source\\Modules\\OvwModules.groupproj",
+          "targets": "make",
+          "description": "Moduli applicazione"
+        }
+      ]
+    },
+    {
+      "name": "Normal Build",
+      "description": "Build completo con clean per rilascio",
+      "shortcut": "N",
+      "configuration": "Debug",
+      "verbose": false,
+      "cleanFirst": true,
+      "showOutput": false,
+      "enabled": true,
+      "icon": "build",
+      "category": "Development",
+      "projects": [
+        {
+          "projectPath": "S:\\work\\Source\\Modules\\OvwPackages.groupproj",
+          "targets": "Clean;Build",
+          "description": "Packages principali"
+        },
+        {
+          "projectPath": "S:\\work\\Source\\Modules\\OvwModules.groupproj",
+          "targets": "Clean;Build",
+          "description": "Moduli applicazione"
+        }
+      ]
+    },
+    {
+      "name": "Build Package",
+      "description": "Compila solo i packages",
+      "shortcut": "P",
+      "configuration": "Debug",
+      "verbose": false,
+      "cleanFirst": true,
+      "showOutput": false,
+      "enabled": true,
+      "icon": "package",
+      "category": "Components",
+      "projects": [
+        {
+          "projectPath": "S:\\work\\Source\\Modules\\OvwPackages.groupproj",
+          "targets": "Clean;Build",
+          "description": "Packages Delphi"
+        }
+      ]
+    },
+    {
+      "name": "Build Modules",
+      "description": "Compila solo i moduli applicazione",
+      "shortcut": "M",
+      "configuration": "Debug",
+      "verbose": false,
+      "cleanFirst": true,
+      "showOutput": false,
+      "enabled": true,
+      "icon": "module",
+      "category": "Components",
+      "projects": [
+        {
+          "projectPath": "S:\\work\\Source\\Modules\\OvwModules.groupproj",
+          "targets": "Clean;Build",
+          "description": "Moduli applicazione"
+        }
+      ]
+    },
+    {
+      "name": "Build APPBOSServices",
+      "description": "Compila APP di servizi",
+      "shortcut": "S",
+      "configuration": "Debug",
+      "verbose": false,
+      "cleanFirst": true,
+      "showOutput": false,
+      "enabled": true,
+      "icon": "service",
+      "category": "Services",
+      "projects": [
+        {
+          "projectPath": "s:\\work\\Source\\WebServices\\OvwServices\\AppBosServices.dproj",
+          "targets": "make",
+          "description": "Servizio AppBos"
+        }
+      ]
+    },
+    {
+      "name": "Build BOSServices DLL",
+      "description": "Compila DLL di servizi",
+      "shortcut": "S",
+      "configuration": "Debug",
+      "verbose": false,
+      "cleanFirst": true,
+      "showOutput": false,
+      "enabled": true,
+      "icon": "service",
+      "category": "Services",
+      "projects": [
+        {
+          "projectPath": "s:\\work\\Source\\WebServices\\OvwServices\\BosServices.dproj",
+          "targets": "Clean;Build",
+          "description": "Servizio ISAPI"
+        }
+      ]
+    },	
+        
+    {
+      "name": "Stand Alone",
+      "description": "Build Stand Alone",
+      "shortcut": "D",
+      "configuration": "Debug",
+      "verbose": true,
+      "cleanFirst": true,
+      "showOutput": true,
+      "enabled": true,
+      "icon": "service",
+      "category": "Service",
+      "projects": [
+        {
+          "projectPath": "s:\\work\\Source\\Core\\OverviewStandaloneSrv\\OverviewStandaloneSrv.dproj",
+          "targets": "Clean;Build",
+          "description": "Server Standalone"
+        }
+      ]
+    }
+  ]
+}
