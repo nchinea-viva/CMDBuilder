@@ -206,14 +206,14 @@ object frmTrayMain: TfrmTrayMain
         TabOrder = 10
         OnClick = GestSubClick
       end
-      object cxButton1: TcxButton
+      object btDBVersion: TcxButton
         Left = 136
         Top = 101
         Width = 216
         Height = 25
         Caption = 'DB Version'
         TabOrder = 11
-        OnClick = cxButton1Click
+        OnClick = btDBVersionClick
       end
       object btSession: TcxButton
         Left = 623
@@ -293,6 +293,15 @@ object frmTrayMain: TfrmTrayMain
         Caption = 'SQL'
         TabOrder = 17
         OnClick = btXMLClick
+      end
+      object brChangePwd: TcxButton
+        Left = 136
+        Top = 132
+        Width = 216
+        Height = 25
+        Caption = 'Change password'
+        TabOrder = 18
+        OnClick = brChangePwdClick
       end
     end
     object pnlStatus: TPanel

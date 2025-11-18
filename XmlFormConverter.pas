@@ -5,11 +5,7 @@ interface
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, AdvMemo, Advmxml,  Vcl.Clipbrd,
-  AdvmSQLS, FireDAC.Stan.Intf, FireDAC.Stan.Option, FireDAC.Stan.Error,
-  FireDAC.UI.Intf, FireDAC.Phys.Intf, FireDAC.Stan.Def, FireDAC.Stan.Pool,
-  FireDAC.Stan.Async, FireDAC.Phys, FireDAC.VCLUI.Wait, FireDAC.Moni.FlatFile,
-  FireDAC.Moni.Custom, FireDAC.Moni.Base, FireDAC.Moni.RemoteClient, Data.DB,
-  FireDAC.Comp.Client;
+  AdvmSQLS, Vcl.ExtCtrls;
 
 type
   TFConvert = class(TForm)
@@ -19,10 +15,9 @@ type
     Button3: TButton;
     CheckBox1: TCheckBox;
     AdvSQLMemoStyler: TAdvSQLMemoStyler;
-    FDConnection1: TFDConnection;
-    FDMoniRemoteClientLink1: TFDMoniRemoteClientLink;
-    FDMoniCustomClientLink1: TFDMoniCustomClientLink;
-    FDMoniFlatFileClientLink1: TFDMoniFlatFileClientLink;
+    Panel1: TPanel;
+    Panel2: TPanel;
+    Panel3: TPanel;
     procedure Button1Click(Sender: TObject);
     procedure Button3Click(Sender: TObject);
     procedure FormCreate(Sender: TObject);
@@ -42,12 +37,14 @@ implementation
 
 {$R *.dfm}
 
-Uses XMLMultirefConverter, SQLPrettyPrint;
+Uses XMLMultirefConverter, SQLFormatter;
 
 procedure TFConvert.Button1Click(Sender: TObject);
 Var lMemoLine: String;
 begin
   lMemoLine := Trim(XmlMemo.Lines.Text);
+  if lMemoLine = '' then
+    exit;
   if lMemoLine[1] = '''' then
     lMemoLine[1] := ' ';
   if lMemoLine[Length(lMemoLine)] = '''' then
@@ -59,7 +56,7 @@ begin
   else
   begin
     lMemoLine := StringReplace(lMemoLine, '#10#13', ' ', [rfReplaceAll, rfIgnoreCase]);
-    XmlMemo.Lines.Text := PrettyPrintSQL(lMemoLine);
+    XmlMemo.Lines.Text := PrettyPrintSQL(lMemoLine, CheckBox1.Checked);
   end;
 end;
 

@@ -4,7 +4,8 @@ interface
 
 uses
   Windows, System.SysUtils, System.Classes, System.Types, LbCipher,
-  Winapi.ShellAPI, System.UITypes, System.IOUtils;
+  Winapi.ShellAPI, System.UITypes, System.IOUtils, DECCipher, DECHash, DECFmt,
+  DECUtil;
 
 const
   DBT_DEVICEARRIVAL = $8000;
@@ -43,6 +44,16 @@ type
 
   TCompilePath = Array of String;
 
+  TOtnEncryptionMode = (emAes);
+  TOtnEncryptionParams = record
+    CipherClass: TDECCipherClass;
+    CipherMode: TCipherMode;
+    HashClass: TDECHashClass;
+    TextFormat: TDECFormatClass;
+    KDFIndex: LongWord;
+  end;
+
+
   TRecConfig = Class
   Private
     FPathBOS    : String;
@@ -75,6 +86,8 @@ type
   function ApplySHA1Hash(sMessage: string): string;
   function RunAndWait(const AppName: string): Boolean;
   function GetDocumentsPath: string;
+  function Encrypt(const AText, APassword: string; AMode: TOtnEncryptionMode): string;
+  function Decrypt(const AText, APassword: string; AMode: TOtnEncryptionMode; ReturnEmptyStringifError: Boolean = False): string;
 
 implementation
 
@@ -193,6 +206,92 @@ begin
   end;
 end;
 
+function GetEncDecParams(AMode: TOtnEncryptionMode): TOtnEncryptionParams;
+begin
+  case AMode of
+    emAes:
+      begin
+        Result.CipherClass := TCipher_Rijndael;
+        Result.CipherMode := cmCBCx;
+        Result.HashClass := THash_Whirlpool;
+        Result.TextFormat := TFormat_Mime64;
+        Result.KDFIndex := 1;
+      end;
+  else
+    raise Exception.Create('Unhandled encryption mode "' + IntToStr(Integer(AMode)) + '"');
+  end;
+end;
+
+
+function Encrypt(const AText, APassword: string; AMode: TOtnEncryptionMode): string;
+var
+  Params: TOtnEncryptionParams;
+  Cipher: TDECCipher;
+  Salt, Data, Pass: Binary;
+begin
+  Params := GetEncDecParams(AMode);
+  Cipher := ValidCipher(Params.CipherClass).Create;
+  try
+    Salt := RandomBinary(16);
+    Pass := ValidHash(Params.HashClass).KDFx(APassword[1], Length(APassword) * SizeOf(APassword[1]), Salt[1], Length(Salt), Cipher.Context.KeySize, TFormat_Copy, Params.KDFIndex);
+    Cipher.Mode := Params.CipherMode;
+    Cipher.Init(Pass);
+    SetLength(Data, Length(AText) * SizeOf(AText[1]));
+    Cipher.Encode(AText[1], Data[1], Length(Data));
+    Result := ValidFormat(Params.TextFormat).Encode(Salt + Data + Cipher.CalcMAC);
+  finally
+    Cipher.Free;
+    ProtectBinary(Salt);
+    ProtectBinary(Data);
+    ProtectBinary(Pass);
+  end;
+end;
+
+function Decrypt(const AText, APassword: string; AMode: TOtnEncryptionMode; ReturnEmptyStringifError: Boolean = False): string;
+var
+  Params: TOtnEncryptionParams;
+  Cipher: TDECCipher;
+  Salt, Data, Check, Pass: Binary;
+  Len: Integer;
+  procedure __ManageError();
+  begin
+    if ReturnEmptyStringifError then
+      Result:= ''
+    else
+      raise Exception.Create('Invalid Decryption Password');
+  end;
+begin
+  Params := GetEncDecParams(AMode);
+  Cipher := ValidCipher(Params.CipherClass).Create;
+  try
+    Try
+      Salt := ValidFormat(Params.TextFormat).Decode(AText);
+      Len := Length(Salt) - 16 - Cipher.Context.BufferSize;
+      Data := System.Copy(Salt, 17, Len);
+      Check := System.Copy(Salt, Len + 17, Cipher.Context.BufferSize);
+      SetLength(Salt, 16);
+      Pass := ValidHash(Params.HashClass).KDFx(APassword[1], Length(APassword) * SizeOf(APassword[1]), Salt[1], Length(Salt), Cipher.Context.KeySize, TFormat_Copy, Params.KDFIndex);
+      Cipher.Mode := Params.CipherMode;
+      Cipher.Init(Pass);
+      SetLength(Result, Len div SizeOf(AText[1]));
+      Cipher.Decode(Data[1], Result[1], Len);
+      if Check <> Cipher.CalcMAC then
+        __ManageError;
+    Except
+      On E: Exception Do
+      begin
+        __ManageError;
+      end;
+    End;
+  finally
+    Cipher.Free;
+    ProtectBinary(Salt);
+    ProtectBinary(Data);
+    ProtectBinary(Check);
+    ProtectBinary(Pass);
+  end;
+end;
+
 { TRecConfig }
 
 constructor TRecConfig.Create(APathBOS, APathAPPBOS, APathAlone, AOvwTools,
@@ -246,5 +345,7 @@ begin
   FXlsConv    := AXlsConv;
   FSqlServer  := ASqlServer;
 end;
+
+
 
 end.

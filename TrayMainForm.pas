@@ -89,7 +89,7 @@ type
     cxImageList: TcxImageList;
     SVNGetLockFromS1: TMenuItem;
     SVNUnLockS1: TMenuItem;
-    cxButton1: TcxButton;
+    btDBVersion: TcxButton;
     FDConnection1: TFDConnection;
     FDQuery1: TFDQuery;
     btSession: TcxButton;
@@ -100,12 +100,14 @@ type
     btXML: TButton;
     AutoConvert: TCheckBox;
     btSql: TButton;
+    brChangePwd: TcxButton;
     procedure FormCreate(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FormWindowStateChange(Sender: TObject);
     procedure TrayIconDblClick(Sender: TObject);
     procedure ApplicationEventsMinimize(Sender: TObject);
+    procedure brChangePwdClick(Sender: TObject);
     procedure mnuShowWindowClick(Sender: TObject);
     procedure mnuDebugClick(Sender: TObject);
     procedure mnuReleaseClick(Sender: TObject);
@@ -122,7 +124,7 @@ type
     procedure DrawItemChecked(Sender: TObject; ACanvas: TCanvas; ARect: TRect; Selected: Boolean);
     procedure CDSPathAfterPost(DataSet: TDataSet);
     procedure mnuBOSClick(Sender: TObject);
-    procedure cxButton1Click(Sender: TObject);
+    procedure btDBVersionClick(Sender: TObject);
     procedure cxButton2Click(Sender: TObject);
     procedure Iniconfig1Click(Sender: TObject);
     procedure btSessionClick(Sender: TObject);
@@ -182,7 +184,7 @@ implementation
 
 uses
   Winapi.ShellAPI, System.Win.Registry, TlHelp32, System.UITypes, System.Types,
-  System.IniFiles, IniConfig, XmlFormConverter;
+  System.IniFiles, IniConfig, XmlFormConverter, ChangePwd;
 
 procedure TfrmTrayMain.LoadSettings;
 Var
@@ -249,7 +251,7 @@ begin
   FBuildButtons.Add(lItem);
 end;
 
-procedure TfrmTrayMain.cxButton1Click(Sender: TObject);
+procedure TfrmTrayMain.btDBVersionClick(Sender: TObject);
 var
   Connection: TFDConnection;
   QueryDB: TFDQuery;
@@ -551,6 +553,18 @@ end;
 procedure TfrmTrayMain.ApplicationEventsMinimize(Sender: TObject);
 begin
   HideToTray;
+end;
+
+procedure TfrmTrayMain.brChangePwdClick(Sender: TObject);
+Var lFormChange:  TFChangePwd;
+begin
+  lFormChange := TFChangePwd.Create(Nil);
+  try
+    lFormChange.SqlServer := FRecConfig.SqlServer;
+    lFormChange.ShowModal;
+  finally
+    lFormChange.Free;
+  end;
 end;
 
 procedure TfrmTrayMain.HideToTray;
@@ -1063,14 +1077,23 @@ procedure TfrmTrayMain.btXMLClick(Sender: TObject);
 Var lFormConv:  TFConvert;
 begin
   lFormConv := TFConvert.Create(Nil);
-  if (Sender as TButton).Tag = 1 then
-    lFormConv.XmlMemo.SyntaxStyles := lFormConv.AdvXMLMemoStyler
-  else
-    lFormConv.XmlMemo.SyntaxStyles := lFormConv.AdvSQLMemoStyler;
+  try
+    if (Sender as TButton).Tag = 1 then
+    begin
+      lFormConv.Caption := 'XML pretty converter';
+      lFormConv.XmlMemo.SyntaxStyles := lFormConv.AdvXMLMemoStyler
+    end
+    else
+    begin
+      lFormConv.Caption := 'SQL pretty converter';
+      lFormConv.XmlMemo.SyntaxStyles := lFormConv.AdvSQLMemoStyler;
+    end;
+    lFormConv.AutoConvert := AutoConvert.Checked;
+    lFormConv.ShowModal;
+  finally
+    lFormConv.Free;
+  end;
 
-  lFormConv.AutoConvert := AutoConvert.Checked;
-  lFormConv.ShowModal;
-  lFormConv.Free;
 end;
 
 procedure TfrmTrayMain.CDSPathAfterPost(DataSet: TDataSet);

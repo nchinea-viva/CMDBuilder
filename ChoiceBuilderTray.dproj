@@ -176,6 +176,20 @@
         </DCCReference>
         <DCCReference Include="XMLMultirefConverter.pas"/>
         <DCCReference Include="SQLPrettyPrint.pas"/>
+        <DCCReference Include="SQLFormatter.pas"/>
+        <DCCReference Include="ChangePwd.pas">
+            <Form>FChangePwd</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="Encryption\Part_I\ASN1.pas"/>
+        <DCCReference Include="Encryption\Part_I\CPU.pas"/>
+        <DCCReference Include="Encryption\Part_I\CRC.pas"/>
+        <DCCReference Include="Encryption\Part_I\DECCipher.pas"/>
+        <DCCReference Include="Encryption\Part_I\DECData.pas"/>
+        <DCCReference Include="Encryption\Part_I\DECFmt.pas"/>
+        <DCCReference Include="Encryption\Part_I\DECHash.pas"/>
+        <DCCReference Include="Encryption\Part_I\DECRandom.pas"/>
+        <DCCReference Include="Encryption\Part_I\DECUtil.pas"/>
         <BuildConfiguration Include="Debug">
             <Key>Cfg_2</Key>
             <CfgParent>Base</CfgParent>

@@ -20,7 +20,18 @@ uses
   IniConfig in 'IniConfig.pas' {FIniConfig},
   XmlFormConverter in 'XmlFormConverter.pas' {FConvert},
   XMLMultirefConverter in 'XMLMultirefConverter.pas',
-  SQLPrettyPrint in 'SQLPrettyPrint.pas';
+  SQLPrettyPrint in 'SQLPrettyPrint.pas',
+  SQLFormatter in 'SQLFormatter.pas',
+  ChangePwd in 'ChangePwd.pas' {FChangePwd},
+  ASN1 in 'Encryption\Part_I\ASN1.pas',
+  CPU in 'Encryption\Part_I\CPU.pas',
+  CRC in 'Encryption\Part_I\CRC.pas',
+  DECCipher in 'Encryption\Part_I\DECCipher.pas',
+  DECData in 'Encryption\Part_I\DECData.pas',
+  DECFmt in 'Encryption\Part_I\DECFmt.pas',
+  DECHash in 'Encryption\Part_I\DECHash.pas',
+  DECRandom in 'Encryption\Part_I\DECRandom.pas',
+  DECUtil in 'Encryption\Part_I\DECUtil.pas';
 
 {$R *.res}
 
@@ -30,7 +41,6 @@ begin
   Application.MainFormOnTaskbar := False; // Non mostrare nella taskbar
   Application.Title := 'Choice Builder - System Tray Build Manager';
   Application.CreateForm(TfrmTrayMain, frmTrayMain);
-  Application.CreateForm(TFConvert, FConvert);
   // frmTrayMain.HideToTray;
   Application.Run;
 end.
