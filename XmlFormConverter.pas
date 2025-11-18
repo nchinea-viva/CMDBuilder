@@ -55,7 +55,9 @@ begin
     XmlMemo.Lines.Text := ResolveMultiref(lMemoLine, CheckBox1.Checked)
   else
   begin
-    lMemoLine := StringReplace(lMemoLine, '#10#13', ' ', [rfReplaceAll, rfIgnoreCase]);
+    lMemoLine := StringReplace(lMemoLine, '''#$D#$A''', ' ', [rfReplaceAll, rfIgnoreCase]);
+    lMemoLine := StringReplace(lMemoLine, '''#$D#$A#$D#$A''', ' ', [rfReplaceAll, rfIgnoreCase]);
+
     XmlMemo.Lines.Text := PrettyPrintSQL(lMemoLine, CheckBox1.Checked);
   end;
 end;

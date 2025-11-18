@@ -11,6 +11,9 @@ object FChangePwd: TFChangePwd
   Font.Name = 'Tahoma'
   Font.Style = []
   OldCreateOrder = False
+  Position = poScreenCenter
+  OnClose = FormClose
+  OnCreate = FormCreate
   OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 13
@@ -115,7 +118,6 @@ object FChangePwd: TFChangePwd
     Width = 465
     Height = 21
     TabOrder = 5
-    Text = 'Edit1'
   end
   object Edit2: TEdit
     Left = 16
@@ -123,7 +125,13 @@ object FChangePwd: TFChangePwd
     Width = 465
     Height = 21
     TabOrder = 6
-    Text = 'Edit1'
+  end
+  object Edit3: TEdit
+    Left = 16
+    Top = 193
+    Width = 465
+    Height = 21
+    TabOrder = 7
   end
   object FDQuery1: TFDQuery
     Connection = FDConnection1
@@ -179,5 +187,10 @@ object FChangePwd: TFChangePwd
     LoginPrompt = False
     Left = 440
     Top = 10
+  end
+  object FDCommand: TFDCommand
+    Connection = FDConnection1
+    Left = 152
+    Top = 80
   end
 end
