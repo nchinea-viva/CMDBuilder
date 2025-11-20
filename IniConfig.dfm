@@ -2,8 +2,8 @@ object FIniConfig: TFIniConfig
   Left = 0
   Top = 0
   Caption = 'App BOS Service Ini Config'
-  ClientHeight = 288
-  ClientWidth = 726
+  ClientHeight = 357
+  ClientWidth = 729
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -19,295 +19,19 @@ object FIniConfig: TFIniConfig
   object pFondo: TPanel
     Left = 0
     Top = 0
-    Width = 726
-    Height = 288
+    Width = 729
+    Height = 357
     Align = alClient
     BevelInner = bvLowered
     TabOrder = 0
-    object Label4: TLabel
-      Left = 319
-      Top = 10
-      Width = 68
-      Height = 13
-      Caption = 'Active Server '
-    end
-    object ListView1: TListView
-      Left = 317
-      Top = 38
-      Width = 404
-      Height = 205
-      Columns = <
-        item
-          Caption = 'System ID'
-          Width = 64
-        end
-        item
-          Caption = 'DataBase'
-          Width = 230
-        end
-        item
-          Caption = 'Version'
-          Width = 75
-        end>
-      DoubleBuffered = True
-      RowSelect = True
-      ParentDoubleBuffered = False
-      TabOrder = 0
-      ViewStyle = vsReport
-      OnSelectItem = ListView1SelectItem
-    end
-    object GroupBox2: TGroupBox
-      Left = 6
-      Top = 123
-      Width = 304
-      Height = 121
-      Caption = 'New Configuration'
-      Color = 12112051
-      Font.Charset = DEFAULT_CHARSET
-      Font.Color = clWindowText
-      Font.Height = -11
-      Font.Name = 'Tahoma'
-      Font.Style = [fsBold]
-      ParentBackground = False
-      ParentColor = False
-      ParentFont = False
-      TabOrder = 1
-      object Label5: TLabel
-        Left = 8
-        Top = 25
-        Width = 32
-        Height = 13
-        Caption = 'Server'
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -11
-        Font.Name = 'Tahoma'
-        Font.Style = []
-        ParentFont = False
-      end
-      object Label6: TLabel
-        Left = 8
-        Top = 57
-        Width = 49
-        Height = 13
-        Caption = 'System ID'
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -11
-        Font.Name = 'Tahoma'
-        Font.Style = []
-        ParentFont = False
-      end
-      object Label7: TLabel
-        Left = 8
-        Top = 89
-        Width = 46
-        Height = 13
-        Caption = 'DataBase'
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -11
-        Font.Name = 'Tahoma'
-        Font.Style = []
-        ParentFont = False
-      end
-      object eNewDB: TEdit
-        Left = 72
-        Top = 86
-        Width = 225
-        Height = 21
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -11
-        Font.Name = 'Tahoma'
-        Font.Style = []
-        ParentFont = False
-        ReadOnly = True
-        TabOrder = 0
-      end
-      object eNewServer: TEdit
-        Left = 72
-        Top = 22
-        Width = 225
-        Height = 21
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -11
-        Font.Name = 'Tahoma'
-        Font.Style = []
-        ParentFont = False
-        ReadOnly = True
-        TabOrder = 1
-      end
-      object eNewSysID: TEdit
-        Left = 72
-        Top = 54
-        Width = 73
-        Height = 21
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -11
-        Font.Name = 'Tahoma'
-        Font.Style = []
-        ParentFont = False
-        ReadOnly = True
-        TabOrder = 2
-      end
-    end
-    object BtnReload: TcxButton
-      Left = 695
-      Top = 5
-      Width = 26
-      Height = 26
-      OptionsImage.Glyph.SourceDPI = 96
-      OptionsImage.Glyph.Data = {
-        89504E470D0A1A0A0000000D49484452000000100000001008060000001FF3FF
-        610000002B744558745469746C650053657475703B437573746F6D697A3B4465
-        7369676E3B53657474696E673B50726F70657274381FB5210000033849444154
-        785E7D937D4C535718C69F7B7B4AE52355971095599D2B3A0264A6219A85AA03
-        679832C3A21665A2F891CD124704D9206340746B46623019C6A82C565315043F
-        96383F83124D86D3B9580BCC39C0E98A6C4080B60B850BB7F79E7BBC6D5AFE5A
-        78935FCE93933CEF7DCFCDF3629AE25478154D484F57D5872FA3B2F6D29429C8
-        17DF380ACA6BCEB3325B23DB576DDF116E14812BAEB6E3F38A93200060FBD2C2
-        590ACAE2CABF6BBCAA50DAEF1919A8A18C59766C30833106FBF93B96DC5D158F
-        E3E72CA800C7199F3C6CC93E62FBF43F6BF971C647C65D98987A65775E46C696
-        9CF4ADC6C4C44EC6F0D192450930BC190F4561D9C9C9A91DF99B32F2ADDBD7BE
-        976A7AFF27004412259048834040F2F8C72690B4643E9216CFE7BD3E3F348487
-        2228282C58CB2F5E34175461B8FBB30B7DAF7ABD002049D2D4CFD1E4EEFA3A25
-        39E55D5769610E2F49140A63E0390E924C43CF5025C40045D5B7F5CAD3F6472B
-        DA1F5D730290B8A0796751ED368D56BB9968C8BAAAD23C4E1B45F0C7B3976868
-        BA054234D8BE351B06430286863DA83BFEA332210AADA22034FFD97EAF890020
-        4437C3B1273F4B1DDD0042087CFE71D41D6B46FF3FEECD248A7027CFE2C2A183
-        56F01A82BD9F6DE4BD5E5FD6E973B7B2DC7FB92E11009C1C0884DEE71F9F84A4
-        5050CA10131B0DDD0C5DB4362A4AD5B1102519E38208AA500C794621CB0104BD
-        3C00F9E5F3AEA2AF0ED4B5EEAF3CC10607BD989C10B1735B0E92524D67826C5C
-        BF1263C2243CBE51D86C2760B737B4F5B9BB4B010422E1D1A5993F5EBEA7E47B
-        F9EFBE21F6C0D9C3DA1E77B1DFBBFB588F7B80B53FEB652D6D9DEC5AAB93ADB3
-        942886B7D33201C4A8F0040053417C82B12C739549234C8AA1AF8D8CF830365B
-        1FCC008646BC9839531F0AD5F2654BB9DE172FF603CEBC7796AE57A672C02816
-        44C7EA70F3F62F68BD7D1F94D3B2A2BD9F700149467D7D239BA58F41DA3213A7
-        D7C781CA745ED023530991244A1DBFDDD870E468C3AF0E47F3F5A71DF7B32684
-        D1078303C370BBFF85E0F73DEC74B6655F6EBA78F5D40F0E57FF2BD71600A242
-        2942B53AA718E1258909136B4ACF2D367F58C8CC6BACCC98F2410980B8E07DF8
-        D4AA706F25AD997695A355DE0812D63CFEA75E03CFF56ADF743CC88500000000
-        49454E44AE426082}
-      TabOrder = 2
-      OnClick = BtnReloadClick
-    end
-    object eActiveServer: TEdit
-      Left = 399
-      Top = 7
-      Width = 290
-      Height = 21
-      TabOrder = 3
-    end
-    object gbConfig: TGroupBox
-      Left = 5
-      Top = 2
-      Width = 305
-      Height = 121
-      Margins.Left = 6
-      Caption = 'Current Configuration'
-      Color = 8421631
-      Font.Charset = DEFAULT_CHARSET
-      Font.Color = clWindowText
-      Font.Height = -11
-      Font.Name = 'Tahoma'
-      Font.Style = [fsBold]
-      ParentBackground = False
-      ParentColor = False
-      ParentFont = False
-      TabOrder = 4
-      object Label1: TLabel
-        Left = 8
-        Top = 25
-        Width = 32
-        Height = 13
-        Caption = 'Server'
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -11
-        Font.Name = 'Tahoma'
-        Font.Style = []
-        ParentFont = False
-      end
-      object Label2: TLabel
-        Left = 8
-        Top = 57
-        Width = 49
-        Height = 13
-        Caption = 'System ID'
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -11
-        Font.Name = 'Tahoma'
-        Font.Style = []
-        ParentFont = False
-      end
-      object Label3: TLabel
-        Left = 8
-        Top = 89
-        Width = 46
-        Height = 13
-        Caption = 'DataBase'
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -11
-        Font.Name = 'Tahoma'
-        Font.Style = []
-        ParentFont = False
-      end
-      object eDB: TEdit
-        Left = 72
-        Top = 86
-        Width = 225
-        Height = 21
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -11
-        Font.Name = 'Tahoma'
-        Font.Style = []
-        ParentFont = False
-        ReadOnly = True
-        TabOrder = 0
-      end
-      object eServer: TEdit
-        Left = 72
-        Top = 22
-        Width = 225
-        Height = 21
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -11
-        Font.Name = 'Tahoma'
-        Font.Style = []
-        ParentFont = False
-        ReadOnly = True
-        TabOrder = 1
-      end
-      object eSysID: TEdit
-        Left = 72
-        Top = 54
-        Width = 73
-        Height = 21
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -11
-        Font.Name = 'Tahoma'
-        Font.Style = []
-        ParentFont = False
-        ReadOnly = True
-        TabOrder = 2
-      end
-    end
     object Panel1: TPanel
       Left = 2
-      Top = 245
-      Width = 722
+      Top = 314
+      Width = 725
       Height = 41
       Align = alBottom
       BevelInner = bvLowered
-      TabOrder = 5
+      TabOrder = 0
       object btnSaveConfig: TcxButton
         Left = 8
         Top = 8
@@ -366,6 +90,436 @@ object FIniConfig: TFIniConfig
           01D589CC0000000049454E44AE426082}
         TabOrder = 1
         OnClick = btCloseClick
+      end
+    end
+    object Panel2: TPanel
+      Left = 2
+      Top = 2
+      Width = 311
+      Height = 312
+      Align = alLeft
+      Caption = 'Panel2'
+      TabOrder = 1
+      object gbConfig: TGroupBox
+        Left = 1
+        Top = 1
+        Width = 309
+        Height = 155
+        Margins.Left = 6
+        Align = alTop
+        Caption = 'Current Configuration'
+        Color = 8421631
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -11
+        Font.Name = 'Tahoma'
+        Font.Style = [fsBold]
+        ParentBackground = False
+        ParentColor = False
+        ParentFont = False
+        TabOrder = 0
+        object Label1: TLabel
+          Left = 8
+          Top = 25
+          Width = 32
+          Height = 13
+          Caption = 'Server'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ParentFont = False
+        end
+        object Label2: TLabel
+          Left = 8
+          Top = 53
+          Width = 49
+          Height = 13
+          Caption = 'System ID'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ParentFont = False
+        end
+        object Label3: TLabel
+          Left = 8
+          Top = 80
+          Width = 46
+          Height = 13
+          Caption = 'DataBase'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ParentFont = False
+        end
+        object Label8: TLabel
+          Left = 8
+          Top = 129
+          Width = 55
+          Height = 13
+          Caption = 'UDP Server'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ParentFont = False
+        end
+        object Label10: TLabel
+          Left = 196
+          Top = 129
+          Width = 20
+          Height = 13
+          Caption = 'Port'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ParentFont = False
+        end
+        object eDB: TEdit
+          Left = 72
+          Top = 77
+          Width = 225
+          Height = 21
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ParentFont = False
+          ReadOnly = True
+          TabOrder = 0
+        end
+        object eServer: TEdit
+          Left = 72
+          Top = 22
+          Width = 225
+          Height = 21
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ParentFont = False
+          ReadOnly = True
+          TabOrder = 1
+        end
+        object eSysID: TEdit
+          Left = 72
+          Top = 50
+          Width = 73
+          Height = 21
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ParentFont = False
+          ReadOnly = True
+          TabOrder = 2
+        end
+        object eUDPServer: TEdit
+          Left = 72
+          Top = 126
+          Width = 114
+          Height = 21
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ParentFont = False
+          ReadOnly = True
+          TabOrder = 3
+        end
+        object eUDPPort: TEdit
+          Left = 224
+          Top = 126
+          Width = 73
+          Height = 21
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ParentFont = False
+          ReadOnly = True
+          TabOrder = 4
+        end
+        object ckUDPLog: TCheckBox
+          Left = 72
+          Top = 104
+          Width = 97
+          Height = 17
+          Caption = 'UDP log'
+          TabOrder = 5
+        end
+      end
+      object GroupBox2: TGroupBox
+        Left = 1
+        Top = 156
+        Width = 309
+        Height = 155
+        Align = alClient
+        Caption = 'New Configuration'
+        Color = 12112051
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -11
+        Font.Name = 'Tahoma'
+        Font.Style = [fsBold]
+        ParentBackground = False
+        ParentColor = False
+        ParentFont = False
+        TabOrder = 1
+        object Label5: TLabel
+          Left = 8
+          Top = 22
+          Width = 32
+          Height = 13
+          Caption = 'Server'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ParentFont = False
+        end
+        object Label6: TLabel
+          Left = 8
+          Top = 53
+          Width = 49
+          Height = 13
+          Caption = 'System ID'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ParentFont = False
+        end
+        object Label7: TLabel
+          Left = 8
+          Top = 80
+          Width = 46
+          Height = 13
+          Caption = 'DataBase'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ParentFont = False
+        end
+        object Label9: TLabel
+          Left = 8
+          Top = 129
+          Width = 55
+          Height = 13
+          Caption = 'UDP Server'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ParentFont = False
+        end
+        object Label11: TLabel
+          Left = 196
+          Top = 129
+          Width = 20
+          Height = 13
+          Caption = 'Port'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ParentFont = False
+        end
+        object eNewDB: TEdit
+          Left = 72
+          Top = 77
+          Width = 225
+          Height = 21
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ParentFont = False
+          ReadOnly = True
+          TabOrder = 0
+        end
+        object eNewServer: TEdit
+          Left = 72
+          Top = 22
+          Width = 225
+          Height = 21
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ParentFont = False
+          ReadOnly = True
+          TabOrder = 1
+        end
+        object eNewSysID: TEdit
+          Left = 72
+          Top = 50
+          Width = 73
+          Height = 21
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ParentFont = False
+          ReadOnly = True
+          TabOrder = 2
+        end
+        object eNewUDPServer: TEdit
+          Left = 72
+          Top = 126
+          Width = 114
+          Height = 21
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ParentFont = False
+          ReadOnly = True
+          TabOrder = 3
+        end
+        object eNewUDPPort: TEdit
+          Left = 222
+          Top = 126
+          Width = 73
+          Height = 21
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ParentFont = False
+          ReadOnly = True
+          TabOrder = 4
+        end
+        object ckNewUDPLog: TCheckBox
+          Left = 72
+          Top = 104
+          Width = 97
+          Height = 17
+          Caption = 'UDP log'
+          TabOrder = 5
+        end
+      end
+    end
+    object Panel3: TPanel
+      Left = 313
+      Top = 2
+      Width = 414
+      Height = 312
+      Align = alClient
+      Caption = 'Panel3'
+      TabOrder = 2
+      object ListView1: TListView
+        Left = 1
+        Top = 42
+        Width = 412
+        Height = 269
+        Align = alClient
+        Columns = <
+          item
+            Caption = 'System ID'
+            Width = 64
+          end
+          item
+            Caption = 'DataBase'
+            Width = 230
+          end
+          item
+            Caption = 'Version'
+            Width = 75
+          end>
+        DoubleBuffered = True
+        RowSelect = True
+        ParentDoubleBuffered = False
+        TabOrder = 0
+        ViewStyle = vsReport
+        OnSelectItem = ListView1SelectItem
+      end
+      object Panel4: TPanel
+        Left = 1
+        Top = 1
+        Width = 412
+        Height = 41
+        Align = alTop
+        Caption = 'Panel4'
+        TabOrder = 1
+        object Label4: TLabel
+          Left = 7
+          Top = 10
+          Width = 68
+          Height = 13
+          Caption = 'Active Server '
+        end
+        object BtnReload: TcxButton
+          Left = 385
+          Top = 5
+          Width = 26
+          Height = 26
+          OptionsImage.Glyph.SourceDPI = 96
+          OptionsImage.Glyph.Data = {
+            89504E470D0A1A0A0000000D49484452000000100000001008060000001FF3FF
+            610000002B744558745469746C650053657475703B437573746F6D697A3B4465
+            7369676E3B53657474696E673B50726F70657274381FB5210000033849444154
+            785E7D937D4C535718C69F7B7B4AE52355971095599D2B3A0264A6219A85AA03
+            679832C3A21665A2F891CD124704D9206340746B46623019C6A82C565315043F
+            96383F83124D86D3B9580BCC39C0E98A6C4080B60B850BB7F79E7BBC6D5AFE5A
+            78935FCE93933CEF7DCFCDF3629AE25478154D484F57D5872FA3B2F6D29429C8
+            17DF380ACA6BCEB3325B23DB576DDF116E14812BAEB6E3F38A93200060FBD2C2
+            590ACAE2CABF6BBCAA50DAEF1919A8A18C59766C30833106FBF93B96DC5D158F
+            E3E72CA800C7199F3C6CC93E62FBF43F6BF971C647C65D98987A65775E46C696
+            9CF4ADC6C4C44EC6F0D192450930BC190F4561D9C9C9A91DF99B32F2ADDBD7BE
+            976A7AFF27004412259048834040F2F8C72690B4643E9216CFE7BD3E3F348487
+            2228282C58CB2F5E34175461B8FBB30B7DAF7ABD002049D2D4CFD1E4EEFA3A25
+            39E55D5769610E2F49140A63E0390E924C43CF5025C40045D5B7F5CAD3F6472B
+            DA1F5D730290B8A0796751ED368D56BB9968C8BAAAD23C4E1B45F0C7B3976868
+            BA054234D8BE351B06430286863DA83BFEA332210AADA22034FFD97EAF890020
+            4437C3B1273F4B1DDD0042087CFE71D41D6B46FF3FEECD248A7027CFE2C2A183
+            56F01A82BD9F6DE4BD5E5FD6E973B7B2DC7FB92E11009C1C0884DEE71F9F84A4
+            5050CA10131B0DDD0C5DB4362A4AD5B1102519E38208AA500C794621CB0104BD
+            3C00F9E5F3AEA2AF0ED4B5EEAF3CC10607BD989C10B1735B0E92524D67826C5C
+            BF1263C2243CBE51D86C2760B737B4F5B9BB4B010422E1D1A5993F5EBEA7E47B
+            F9EFBE21F6C0D9C3DA1E77B1DFBBFB588F7B80B53FEB652D6D9DEC5AAB93ADB3
+            942886B7D33201C4A8F0040053417C82B12C739549234C8AA1AF8D8CF830365B
+            1FCC008646BC9839531F0AD5F2654BB9DE172FF603CEBC7796AE57A672C02816
+            44C7EA70F3F62F68BD7D1F94D3B2A2BD9F700149467D7D239BA58F41DA3213A7
+            D7C781CA745ED023530991244A1DBFDDD870E468C3AF0E47F3F5A71DF7B32684
+            D1078303C370BBFF85E0F73DEC74B6655F6EBA78F5D40F0E57FF2BD71600A242
+            2942B53AA718E1258909136B4ACF2D367F58C8CC6BACCC98F2410980B8E07DF8
+            D4AA706F25AD997695A355DE0812D63CFEA75E03CFF56ADF743CC88500000000
+            49454E44AE426082}
+          TabOrder = 0
+          OnClick = BtnReloadClick
+        end
+        object eActiveServer: TEdit
+          Left = 87
+          Top = 9
+          Width = 290
+          Height = 21
+          TabOrder = 1
+        end
       end
     end
   end

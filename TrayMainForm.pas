@@ -97,10 +97,12 @@ type
     Iniconfig1: TMenuItem;
     eSession: TEdit;
     APPBOSService1: TMenuItem;
-    btXML: TButton;
+    btXML: TcxButton;
     AutoConvert: TCheckBox;
-    btSql: TButton;
+    btSql: TcxButton;
     brChangePwd: TcxButton;
+    gbEditor: TGroupBox;
+    Case1: TMenuItem;
     procedure FormCreate(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
@@ -193,6 +195,7 @@ Var
     ledtAlone  : String;
     lOvwTools  : String;
     lXlsConv   : String;
+    lCaseStudio: String;
     lSqlServer : String;
 begin
   chkVerbose.Checked := FConfig.ReadBool('Settings', 'chkVerbose', False);
@@ -206,10 +209,11 @@ begin
   ledtAlone  := FConfig.ReadString('Settings', 'edtAlone', 's:\work\Bin\OverviewStandaloneSrv.exe');
   lOvwTools  := FConfig.ReadString('Settings', 'edtOvwTools', 's:\work\R&D\OvwTools.exe');
   lXlsConv   := FConfig.ReadString('Settings', 'edtXlsConv', 's:\work\R&D\XslConverter.exe');
+  lCaseStudio:= FConfig.ReadString('Settings', 'edtCaseStudio', 'C:\Program Files (x86)\RKSoft\CASEStudio2\Bin\CASEStud.exe');
   lSqlServer := FConfig.ReadString('Settings', 'edtSQLServer', 'LocalHost' );
 
   FRecConfig := TRecConfig.GetInstance;
-  FRecConfig.SetValues(ledtBOS, ledtAPPBOS, ledtAlone, lOvwTools, lXlsConv, lSqlServer);
+  FRecConfig.SetValues(ledtBOS, ledtAPPBOS, ledtAlone, lOvwTools, lXlsConv, lCaseStudio, lSqlServer);
 
 end;
 
@@ -827,6 +831,7 @@ begin
     3: lExec := FRecConfig.PathAlone;
     4: lExec := FRecConfig.OvwTools;
     5: lExec := FRecConfig.XlsConv;
+    6: lExec := FRecConfig.CaseStudio;
   end;
   RunAndWait(lExec);
 end;

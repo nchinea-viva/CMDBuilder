@@ -133,6 +133,15 @@ object FChangePwd: TFChangePwd
     Height = 21
     TabOrder = 7
   end
+  object btDecrypt: TcxButton
+    Left = 16
+    Top = 85
+    Width = 89
+    Height = 25
+    Caption = 'Decrypt'
+    TabOrder = 8
+    OnClick = btDecryptClick
+  end
   object FDQuery1: TFDQuery
     Connection = FDConnection1
     SQL.Strings = (

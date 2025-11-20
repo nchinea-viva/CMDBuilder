@@ -28,11 +28,13 @@ type
     Edit2: TEdit;
     FDCommand: TFDCommand;
     Edit3: TEdit;
+    btDecrypt: TcxButton;
     procedure FormCreate(Sender: TObject);
     procedure btCloseClick(Sender: TObject);
     procedure cbDataBaseChange(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure btChangeClick(Sender: TObject);
+    procedure btDecryptClick(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
   private
     { Private declarations }
@@ -81,6 +83,11 @@ end;
 procedure TFChangePwd.btCloseClick(Sender: TObject);
 begin
   Close;
+end;
+
+procedure TFChangePwd.btDecryptClick(Sender: TObject);
+begin
+  Edit2.text := Decrypt(Edit1.text, ePwd.Text, emAes, True);
 end;
 
 procedure TFChangePwd.cbDataBaseChange(Sender: TObject);
@@ -147,3 +154,6 @@ begin
 end;
 
 end.
+
+
+AAjcM0WrUSlfbBR5EtcPSy/V98rXZn52SUIuuv5QKLRrh23Pj2rcRenC

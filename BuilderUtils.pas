@@ -59,17 +59,18 @@ type
     FPathBOS    : String;
     FPathAPPBOS : String;
     FPathAlone  : String;
-    FOvwTools  : String;
-    FXlsConv   : String;
+    FOvwTools   : String;
+    FXlsConv    : String;
+    FCaseStudio : String;
     FSqlServer: String;
     class var FInstance: TRecConfig;
-    Constructor Create(APathBOS, APathAPPBOS, APathAlone, AOvwTools, AXlsConv, ASqlServer: String); Reintroduce;
+    Constructor Create(APathBOS, APathAPPBOS, APathAlone, AOvwTools, AXlsConv, ACaseStudio, ASqlServer: String); Reintroduce;
   public
 
     Destructor Destroy;
     class function GetInstance: TRecConfig;overload;
-    class function GetInstance(APathBOS, APathAPPBOS, APathAlone, AOvwTools, AXlsConv, ASqlServer: String): TRecConfig; overload;
-    function SetValues(APathBOS, APathAPPBOS, APathAlone, AOvwTools, AXlsConv, ASqlServer: String): TRecConfig;
+    class function GetInstance(APathBOS, APathAPPBOS, APathAlone, AOvwTools, AXlsConv, ACaseStudio, ASqlServer: String): TRecConfig; overload;
+    function SetValues(APathBOS, APathAPPBOS, APathAlone, AOvwTools, AXlsConv, ACaseStudio, ASqlServer: String): TRecConfig;
     class procedure ReleaseInstance;
 
     Property PathBOS    : String read FPathBOS write FPathBOS;
@@ -77,6 +78,7 @@ type
     Property PathAlone  : String read FPathAlone write FPathAlone;
     Property OvwTools   : String read FOvwTools write FOvwTools;
     Property XlsConv    : String read FXlsConv write FXlsConv;
+    Property CaseStudio : String read FCaseStudio write FCaseStudio;
     Property SqlServer  : String read FSqlServer write FSqlServer;
   end;
 
@@ -295,7 +297,7 @@ end;
 { TRecConfig }
 
 constructor TRecConfig.Create(APathBOS, APathAPPBOS, APathAlone, AOvwTools,
-  AXlsConv, ASqlServer: String);
+  AXlsConv, ACaseStudio, ASqlServer: String);
 begin
   Inherited Create;
   FPathBOS    := APathBOS;
@@ -303,6 +305,7 @@ begin
   FPathAlone  := APathAlone;
   FOvwTools   := AOvwTools;
   FXlsConv    := AXlsConv;
+  FCaseStudio := ACaseStudio;
   FSqlServer  := ASqlServer;
 end;
 
@@ -315,14 +318,14 @@ end;
 class function TRecConfig.GetInstance: TRecConfig;
 begin
   if FInstance = nil then
-    FInstance := TRecConfig.Create('', '', '', '', '', '');
+    FInstance := TRecConfig.Create('', '', '', '', '', '', '');
   Result := FInstance;
 end;
 
-class function TRecConfig.GetInstance(APathBOS, APathAPPBOS, APathAlone, AOvwTools, AXlsConv, ASqlServer: String): TRecConfig;
+class function TRecConfig.GetInstance(APathBOS, APathAPPBOS, APathAlone, AOvwTools, AXlsConv, ACaseStudio, ASqlServer: String): TRecConfig;
 begin
   if FInstance = nil then
-    FInstance := TRecConfig.Create(APathBOS, APathAPPBOS, APathAlone, AOvwTools, AXlsConv, ASqlServer);
+    FInstance := TRecConfig.Create(APathBOS, APathAPPBOS, APathAlone, AOvwTools, AXlsConv, ACaseStudio, ASqlServer);
   Result := FInstance;
 end;
 
@@ -336,13 +339,14 @@ begin
 end;
 
 function TRecConfig.SetValues(APathBOS, APathAPPBOS, APathAlone,
-  AOvwTools, AXlsConv, ASqlServer: String): TRecConfig;
+  AOvwTools, AXlsConv, ACaseStudio, ASqlServer: String): TRecConfig;
 begin
   FPathBOS    := APathBOS;
   FPathAPPBOS := APathAPPBOS;
   FPathAlone  := APathAlone;
   FOvwTools   := AOvwTools;
   FXlsConv    := AXlsConv;
+  FCaseStudio := ACaseStudio;
   FSqlServer  := ASqlServer;
 end;
 

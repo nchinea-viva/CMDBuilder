@@ -3,7 +3,7 @@ object FConvert: TFConvert
   Top = 0
   Caption = 'Convert Pretty format'
   ClientHeight = 608
-  ClientWidth = 819
+  ClientWidth = 881
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -19,21 +19,22 @@ object FConvert: TFConvert
   object Panel1: TPanel
     Left = 0
     Top = 41
-    Width = 819
+    Width = 881
     Height = 526
     Align = alClient
     BevelOuter = bvNone
     Caption = 'Panel1'
     TabOrder = 0
+    ExplicitWidth = 819
     object XmlMemo: TAdvMemo
       Left = 0
       Top = 0
-      Width = 819
+      Width = 665
       Height = 526
       Cursor = crIBeam
       ActiveLineSettings.ShowActiveLine = False
       ActiveLineSettings.ShowActiveLineIndicator = False
-      Align = alClient
+      Align = alLeft
       AutoCompletion.Font.Charset = DEFAULT_CHARSET
       AutoCompletion.Font.Color = clWindowText
       AutoCompletion.Font.Height = -11
@@ -148,23 +149,25 @@ object FConvert: TFConvert
   object Panel2: TPanel
     Left = 0
     Top = 0
-    Width = 819
+    Width = 881
     Height = 41
     Align = alTop
     BevelOuter = bvNone
     Color = clAppWorkSpace
     ParentBackground = False
     TabOrder = 1
+    ExplicitWidth = 819
   end
   object Panel3: TPanel
     Left = 0
     Top = 567
-    Width = 819
+    Width = 881
     Height = 41
     Align = alBottom
     Color = clGray
     ParentBackground = False
     TabOrder = 2
+    ExplicitWidth = 819
     object CheckBox1: TCheckBox
       Left = 14
       Top = 12

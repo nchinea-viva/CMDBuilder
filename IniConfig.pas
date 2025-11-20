@@ -43,6 +43,19 @@ type
     pFondo: TPanel;
     btClose: TcxButton;
     Panel1: TPanel;
+    Panel2: TPanel;
+    Panel3: TPanel;
+    Panel4: TPanel;
+    eUDPServer: TEdit;
+    Label8: TLabel;
+    Label9: TLabel;
+    eNewUDPServer: TEdit;
+    eUDPPort: TEdit;
+    Label10: TLabel;
+    ckUDPLog: TCheckBox;
+    Label11: TLabel;
+    eNewUDPPort: TEdit;
+    ckNewUDPLog: TCheckBox;
     procedure FormShow(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure ListView1SelectItem(Sender: TObject; Item: TListItem;
@@ -71,13 +84,15 @@ procedure TFIniConfig.CurrentConfig;
 Var lFileIni: String;
 begin
   lFileIni :=  TfrmTrayMain(Self.Owner).FRecConfig.PathAPPBOS;
-
   lFileIni := ExtractFilePath(lFileIni);
   lFileIni := lFileIni  + 'IsapiSettingsAdvance.ini';
   FIniAppConfig := TConfigManager.Create(lFileIni);
   eServer.Text := FIniAppConfig.ReadString('CONNECTION', 'Server', 'localhost');
   eSysID.Text  := FIniAppConfig.ReadString('CONNECTION', 'SystemId', '');
   eDB.Text     := FIniAppConfig.ReadString('CONNECTION', 'DB', '');
+  eUDPServer.Text   := FIniAppConfig.ReadString('LOG', 'UDPServer', '');
+  eUDPPort.Text     := FIniAppConfig.ReadInteger('LOG', 'UDPPORT', 23456).ToString;
+  ckUDPLog.Checked  := FIniAppConfig.ReadInteger('LOG', 'UDPLog', 0) = 1;
 end;
 
 procedure TFIniConfig.FormClose(Sender: TObject; var Action: TCloseAction);
@@ -115,9 +130,22 @@ end;
 
 procedure TFIniConfig.btnSaveConfigClick(Sender: TObject);
 begin
-  FIniAppConfig.WriteString('CONNECTION', 'Server', eNewServer.Text);
-  FIniAppConfig.WriteString('CONNECTION', 'SystemId', eNewSysID.Text);
-  FIniAppConfig.WriteString('CONNECTION', 'DB', eNewDB.Text);
+  if eNewServer.Text <> '' then
+    FIniAppConfig.WriteString('CONNECTION', 'Server', eNewServer.Text);
+
+  if eNewSysID.Text <> '' then
+    FIniAppConfig.WriteString('CONNECTION', 'SystemId', eNewSysID.Text);
+
+  if eNewDB.Text <> '' then
+    FIniAppConfig.WriteString('CONNECTION', 'DB', eNewDB.Text);
+
+  If eNewUDPServer.Text <> '' then
+    FIniAppConfig.WriteString('LOG', 'UDPServer', eNewUDPServer.Text);
+
+  If eNewUDPPort.Text <> '' then
+    FIniAppConfig.WriteInteger('LOG', 'UDPPORT', StrToInt(eNewUDPPort.Text));
+
+  FIniAppConfig.WriteInteger('LOG', 'UDPLog', INTEGER(ckNewUDPLog.Checked));
 end;
 
 procedure TFIniConfig.LoadDataBase;

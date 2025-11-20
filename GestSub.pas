@@ -88,6 +88,9 @@ type
     DBNavigator: TcxDBNavigator;
     Label13: TLabel;
     edtSQLServer: TEdit;
+    Label14: TLabel;
+    edtCaseStudio: TEdit;
+    btnCaseStudio: TcxButton;
     procedure DBGrid1DrawColumnCell(Sender: TObject; const Rect: TRect;
       DataCol: Integer; Column: TColumn; State: TGridDrawState);
     procedure cxButton2Click(Sender: TObject);
@@ -136,6 +139,7 @@ begin
         4: edtAlone.Text  := OpenDialog.FileName;
         5: edtOvwTools.Text := OpenDialog.FileName;
         6: edtXlsConv.Text  := OpenDialog.FileName;
+        7: edtCaseStudio.Text := OpenDialog.FileName;
       end;
     end;
   finally
@@ -196,6 +200,7 @@ begin
   FConfig.WriteString('Settings', 'edtAlone', edtAlone.Text);
   FConfig.WriteString('Settings', 'edtOvwTools', edtOvwTools.text);
   FConfig.WriteString('Settings', 'edtXlsConv', edtXlsConv.Text);
+  FConfig.WriteString('Settings', 'edtCaseStudio', edtCaseStudio.Text);
   FConfig.WriteString('Settings', 'edtSQLServer', edtSQLServer.Text);
 
 //  FRecConfig := TRecConfig.GetInstance(ledtBOS, ledtAPPBOS, ledtAlone, lOvwTools, lXlsConv, lSqlServer)
@@ -282,6 +287,7 @@ begin
   edtAlone.Text       := FConfig.ReadString('Settings', 'edtAlone', 's:\work\Bin\OverviewStandaloneSrv.exe');
   edtOvwTools.text    := FConfig.ReadString('Settings', 'edtOvwTools', 's:\work\R&D\OvwTools.exe');
   edtXlsConv.Text     := FConfig.ReadString('Settings', 'edtXlsConv', 's:\work\R&D\XslConverter.exe');
+  edtCaseStudio.Text  := FConfig.ReadString('Settings', 'edtCaseStudio', 'C:\Program Files (x86)\RKSoft\CASEStudio2\Bin\CASEStud.exe');
   edtSQLServer.Text   := FConfig.ReadString('Settings', 'edtSQLServer', 'localhost');
 
   lbResource.Items.Clear;
