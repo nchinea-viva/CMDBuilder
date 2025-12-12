@@ -7,6 +7,7 @@ uses
   madListProcesses,
   madListModules,
   Vcl.Forms,
+  Windows,
   TrayMainForm in 'TrayMainForm.pas' {frmTrayMain},
   SubstManager in 'SubstManager.pas',
   GestSub in 'GestSub.pas' {FGestSubst},
@@ -35,15 +36,62 @@ uses
   SyntaxHighlighter in 'SyntaxHighlighter.pas';
 
 {$R *.res}
+var
+  lMutexHandle: THandle;
+  lWaitResult: DWORD;
 
 begin
-  Application.Initialize;
-  ReportMemoryLeaksOnShutdown := True;
-  Application.MainFormOnTaskbar := False; // Non mostrare nella taskbar
-  Application.Title := 'Choice Builder - System Tray Build Manager';
-  Application.CreateForm(TfrmTrayMain, frmTrayMain);
-  // frmTrayMain.HideToTray;
-  Application.Run;
+
+  lMutexHandle := CreateMutex(nil, False, 'ChoiceBuilder_2025');
+  if lMutexHandle = 0 then
+  begin
+    MessageBox(0, 'Error create mutex! application stop', 'Errore', MB_OK);
+    Exit;
+  end;
+
+  lWaitResult := WaitForSingleObject(lMutexHandle, 0);
+  case lWaitResult of
+    WAIT_OBJECT_0:
+      begin
+        // Mutex acquisito con successo
+      end;
+
+    WAIT_ABANDONED:
+      begin
+        // Il mutex era abbandonato, ma ora è nostro
+        // Possiamo continuare
+        MessageBox(0, 'The previous instance did not close properly',
+                   'Information', MB_OK or MB_ICONWARNING);
+      end;
+
+    WAIT_TIMEOUT:
+      begin
+        // Un'altra istanza sta usando il mutex
+        MessageBox(0, 'The application is already running!',
+                   'Warning', MB_OK or MB_ICONWARNING);
+        CloseHandle(lMutexHandle);
+        Exit;
+      end;
+
+    WAIT_FAILED:
+      begin
+        MessageBox(0, 'Error waiting for mutex!', 'Error', MB_OK);
+        CloseHandle(lMutexHandle);
+        Exit;
+      end;
+  end;
+
+  try
+    Application.Initialize;
+    ReportMemoryLeaksOnShutdown := True;
+    Application.MainFormOnTaskbar := False; // Non mostrare nella taskbar
+    Application.Title := 'Choice Builder - System Tray Build Manager';
+    Application.CreateForm(TfrmTrayMain, frmTrayMain);
+    Application.Run;
+  finally
+    ReleaseMutex(lMutexHandle);
+    CloseHandle(lMutexHandle);
+  end;
 end.
 
 

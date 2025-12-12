@@ -425,10 +425,11 @@ object frmTrayMain: TfrmTrayMain
         Caption = 'Compilation:'
       end
       object lVersion: TLabel
-        Left = 591
+        Left = 588
         Top = 23
         Width = 58
         Height = 16
+        Margins.Right = 6
         Alignment = taRightJustify
         Caption = 'Version: '
         Font.Charset = DEFAULT_CHARSET
