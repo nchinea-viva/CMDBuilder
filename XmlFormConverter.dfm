@@ -2,8 +2,8 @@ object FConvert: TFConvert
   Left = 0
   Top = 0
   Caption = 'Convert Pretty format'
-  ClientHeight = 608
-  ClientWidth = 881
+  ClientHeight = 972
+  ClientWidth = 1238
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -19,22 +19,23 @@ object FConvert: TFConvert
   object Panel1: TPanel
     Left = 0
     Top = 41
-    Width = 881
-    Height = 526
+    Width = 1238
+    Height = 890
     Align = alClient
     BevelOuter = bvNone
     Caption = 'Panel1'
     TabOrder = 0
-    ExplicitWidth = 819
+    ExplicitWidth = 1235
+    ExplicitHeight = 526
     object XmlMemo: TAdvMemo
       Left = 0
       Top = 0
-      Width = 665
-      Height = 526
+      Width = 1238
+      Height = 890
       Cursor = crIBeam
       ActiveLineSettings.ShowActiveLine = False
       ActiveLineSettings.ShowActiveLineIndicator = False
-      Align = alLeft
+      Align = alClient
       AutoCompletion.Font.Charset = DEFAULT_CHARSET
       AutoCompletion.Font.Color = clWindowText
       AutoCompletion.Font.Height = -11
@@ -120,6 +121,7 @@ object FConvert: TFConvert
       PrintOptions.MarginBottom = 0
       PrintOptions.PageNr = False
       PrintOptions.PrintLineNumbers = False
+      RightMargin = 150
       RightMarginColor = clMaroon
       ScrollHint = False
       SelColor = clBlack
@@ -144,30 +146,51 @@ object FConvert: TFConvert
       UseStyler = True
       Version = '3.6.6.0'
       WordWrap = wwNone
+      ExplicitWidth = 665
+      ExplicitHeight = 526
+    end
+    object RichEdit1: TRichEdit
+      Left = 1119
+      Top = 134
+      Width = 530
+      Height = 514
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -11
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      Lines.Strings = (
+        'RichEdit1')
+      ParentFont = False
+      PlainText = True
+      TabOrder = 1
+      Visible = False
+      Zoom = 100
     end
   end
   object Panel2: TPanel
     Left = 0
     Top = 0
-    Width = 881
+    Width = 1238
     Height = 41
     Align = alTop
     BevelOuter = bvNone
     Color = clAppWorkSpace
     ParentBackground = False
     TabOrder = 1
-    ExplicitWidth = 819
+    ExplicitWidth = 1235
   end
   object Panel3: TPanel
     Left = 0
-    Top = 567
-    Width = 881
+    Top = 931
+    Width = 1238
     Height = 41
     Align = alBottom
     Color = clGray
     ParentBackground = False
     TabOrder = 2
-    ExplicitWidth = 819
+    ExplicitTop = 567
+    ExplicitWidth = 1235
     object CheckBox1: TCheckBox
       Left = 14
       Top = 12
@@ -193,6 +216,33 @@ object FConvert: TFConvert
       Caption = 'Convert'
       TabOrder = 2
       OnClick = Button1Click
+    end
+    object Button2: TButton
+      Left = 853
+      Top = 6
+      Width = 96
+      Height = 25
+      Caption = 'Test XML'
+      TabOrder = 3
+      OnClick = Button2Click
+    end
+    object Button4: TButton
+      Left = 955
+      Top = 6
+      Width = 96
+      Height = 25
+      Caption = 'Clear'
+      TabOrder = 4
+      OnClick = Button4Click
+    end
+    object Button5: TButton
+      Left = 1057
+      Top = 6
+      Width = 75
+      Height = 25
+      Caption = 'Button5'
+      TabOrder = 5
+      OnClick = Button5Click
     end
   end
   object AdvXMLMemoStyler: TAdvXMLMemoStyler

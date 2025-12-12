@@ -1,105 +1,54 @@
 ﻿[Closed Files]
-File_0=TSourceModule,'C:\Sviluppo\Librerie\DevExpress\Library\Sources\cxContainer.pas',0,1,6789,1,6814,0,0,,
-File_1=TSourceModule,'C:\Sviluppo\BOS\TestArea\cmdbuilder\TrayMainForm.dfm',0,1,1,1,1,0,0,,
-File_2=TSourceModule,'c:\program files (x86)\embarcadero\studio\21.0\SOURCE\VCL\Vcl.Forms.pas',0,1,1137,1,1156,0,0,{{1891,4}
-File_3=TSourceModule,'C:\Sviluppo\BOS\TestArea\cmdbuilder\SubstManager.pas',0,1,1,34,257,0,0,,
-File_4=TSourceModule,'C:\Sviluppo\Librerie\DevExpress\Library\Sources\cxControls.pas',0,1,14841,1,14871,0,0,,
-File_5=TSourceModule,'S:\Work\Source\Modules\ModPos\Implementation\LcPrintModuleImpl.pas',0,1,1,37,1,0,0,{{1535,0}
-File_6=TSourceModule,'C:\Sviluppo\BOS\TestArea\cmdbuilder\SubstCompleteManager.pas',0,1,177,13,195,0,0,,
-File_7=TSourceModule,'c:\program files (x86)\embarcadero\studio\21.0\source\data\Data.DB.pas',0,1,2466,51,2490,0,0,,
-File_8=TSourceModule,'c:\program files (x86)\embarcadero\studio\21.0\source\data\dsnap\Datasnap.DBClient.pas',0,1,4796,41,4821,0,0,,
-File_9=TSourceModule,'c:\program files (x86)\embarcadero\studio\21.0\SOURCE\VCL\Vcl.Graphics.pas',0,1,673,21,702,0,0,,
-File_10=TSourceModule,'c:\program files (x86)\embarcadero\studio\21.0\SOURCE\VCL\Vcl.ExtCtrls.pas',0,1,1895,3,1917,0,0,,
-File_11=TSourceModule,'C:\Sviluppo\BOS\TestArea\cmdbuilder\SubstManagerNew.pas',0,1,4,14,15,0,0,,
-File_12=TSourceModule,'C:\Sviluppo\SHARE_FOLDER\cmdbuilder\new2\TrayMainForm.pas',0,1,84,55,113,0,0,,
+File_0=TSourceModule,'C:\Sviluppo\cmdbuilder\ConfigWizardForm.pas',0,1,247,18,142,0,0,,
+File_1=TSourceModule,'C:\Sviluppo\cmdbuilder\TrayMainForm.dfm',0,1,1,1,1,0,0,,
+File_2=TSourceModule,'C:\Sviluppo\BOS\TestArea\cmdbuilder\TrayMainForm.pas',0,1,1062,66,1067,0,0,,{1
+File_3=TSourceModule,'C:\Sviluppo\BOS\TestArea\cmdbuilder\RegistryReader.pas',0,1,370,20,1,0,0,,
+File_4=TSourceModule,'c:\program files (x86)\embarcadero\studio\21.0\source\rtl\win\Winapi.Windows.pas',0,1,38522,22,38550,0,0,,
+File_5=TSourceModule,'c:\program files (x86)\embarcadero\studio\21.0\source\rtl\common\System.Win.Registry.pas',0,1,317,35,345,0,0,,
+File_6=TSourceModule,'C:\Sviluppo\BOS\TestArea\cmdbuilder\SQLServerDetection.pas',0,1,41,33,63,0,0,,
+File_7=TSourceModule,'C:\Sviluppo\BOS\TestArea\cmdbuilder\BuilderUtils.pas',0,1,73,1,91,0,0,,
+File_8=TSourceModule,'C:\Sviluppo\BOS\TestArea\cmdbuilder\ConfigManager.pas',0,1,1,19,1,0,0,,
+File_9=TSourceModule,'C:\Sviluppo\BOS\TestArea\cmdbuilder\BuildConfigManager.pas',0,1,64,1,1,0,0,,
+File_10=TSourceModule,'C:\Sviluppo\BOS\TestArea\cmdbuilder\GestSub.pas',0,1,184,74,190,0,0,,{1
+File_11=TSourceModule,'C:\Sviluppo\BOS\TestArea\cmdbuilder\ConfigWizardForm.pas',0,1,1,14,100,0,0,,
+File_12=TSourceModule,'C:\Sviluppo\BOS\TestArea\cmdbuilder\Unit1.pas',0,1,1,36,264,0,0,,
+File_13=TSourceModule,'C:\Sviluppo\BOS\TestArea\cmdbuilder\IniConfig.pas',0,1,66,80,95,0,0,,{1
 
 [Modules]
-Module0=C:\Sviluppo\BOS\TestArea\cmdbuilder\XmlFormConverter.pas
-Module1=C:\Sviluppo\BOS\TestArea\cmdbuilder\SQLPrettyPrint.pas
-Module2=C:\Sviluppo\BOS\TestArea\cmdbuilder\ChoiceBuilderTray.dproj
-Module3=c:\program files (x86)\embarcadero\studio\21.0\SOURCE\RTL\SYS\System.SysUtils.pas
-Module4=C:\Sviluppo\BOS\TestArea\cmdbuilder\TrayMainForm.pas
-Module5=C:\Sviluppo\BOS\TestArea\cmdbuilder\XMLMultirefConverter.pas
-Module6=c:\program files (x86)\embarcadero\studio\21.0\SOURCE\RTL\SYS\System.pas
-Module7=C:\Sviluppo\BOS\TestArea\cmdbuilder\IniConfig.pas
-Module8=c:\program files (x86)\embarcadero\studio\21.0\SOURCE\XML\Xml.XMLIntf.pas
-Module9=C:\Sviluppo\BOS\TestArea\cmdbuilder\Unit1.pas
-Module10=C:\Sviluppo\BOS\TestArea\cmdbuilder\BuilderUtils.pas
-Module11=C:\Sviluppo\BOS\TestArea\cmdbuilder\GestSub.pas
-Module12=C:\Sviluppo\BOS\TestArea\cmdbuilder\ConfigManager.pas
-Module13=C:\Sviluppo\BOS\TestArea\cmdbuilder\RegistryReader.pas
-Module14=C:\Sviluppo\BOS\TestArea\cmdbuilder\ConfigWizardForm.pas
-Module15=C:\Sviluppo\BOS\TestArea\cmdbuilder\SQLServerDetection.pas
-Module16=C:\Sviluppo\BOS\TestArea\cmdbuilder\BuildConfigManager.pas
-Module17=c:\program files (x86)\embarcadero\studio\21.0\source\rtl\win\Winapi.Windows.pas
-Module18=c:\program files (x86)\embarcadero\studio\21.0\source\rtl\common\System.Win.Registry.pas
-Module19=default.htm
-Count=20
+Module0=C:\Sviluppo\cmdbuilder\XmlFormConverter.pas
+Module1=C:\Sviluppo\cmdbuilder\BuilderUtils.pas
+Module2=default.htm
+Module3=C:\Sviluppo\cmdbuilder\TrayMainForm.pas
+Module4=C:\Sviluppo\cmdbuilder\IniConfig.pas
+Module5=C:\Sviluppo\cmdbuilder\ChangePwd.pas
+Module6=C:\Sviluppo\cmdbuilder\GestSub.pas
+Count=7
 EditWindowCount=1
 
-[C:\Sviluppo\BOS\TestArea\cmdbuilder\XmlFormConverter.pas]
+[C:\Sviluppo\cmdbuilder\XmlFormConverter.pas]
 ModuleType=TSourceModule
 
-[C:\Sviluppo\BOS\TestArea\cmdbuilder\SQLPrettyPrint.pas]
-ModuleType=TSourceModule
-
-[C:\Sviluppo\BOS\TestArea\cmdbuilder\ChoiceBuilderTray.dproj]
-ModuleType=TBaseProject
-
-[c:\program files (x86)\embarcadero\studio\21.0\SOURCE\RTL\SYS\System.SysUtils.pas]
-ModuleType=TSourceModule
-
-[C:\Sviluppo\BOS\TestArea\cmdbuilder\TrayMainForm.pas]
-ModuleType=TSourceModule
-
-[C:\Sviluppo\BOS\TestArea\cmdbuilder\XMLMultirefConverter.pas]
-ModuleType=TSourceModule
-
-[c:\program files (x86)\embarcadero\studio\21.0\SOURCE\RTL\SYS\System.pas]
-ModuleType=TSourceModule
-
-[C:\Sviluppo\BOS\TestArea\cmdbuilder\IniConfig.pas]
-ModuleType=TSourceModule
-
-[c:\program files (x86)\embarcadero\studio\21.0\SOURCE\XML\Xml.XMLIntf.pas]
-ModuleType=TSourceModule
-
-[C:\Sviluppo\BOS\TestArea\cmdbuilder\Unit1.pas]
-ModuleType=TSourceModule
-
-[C:\Sviluppo\BOS\TestArea\cmdbuilder\BuilderUtils.pas]
-ModuleType=TSourceModule
-
-[C:\Sviluppo\BOS\TestArea\cmdbuilder\GestSub.pas]
-ModuleType=TSourceModule
-
-[C:\Sviluppo\BOS\TestArea\cmdbuilder\ConfigManager.pas]
-ModuleType=TSourceModule
-
-[C:\Sviluppo\BOS\TestArea\cmdbuilder\RegistryReader.pas]
-ModuleType=TSourceModule
-
-[C:\Sviluppo\BOS\TestArea\cmdbuilder\ConfigWizardForm.pas]
-ModuleType=TSourceModule
-
-[C:\Sviluppo\BOS\TestArea\cmdbuilder\SQLServerDetection.pas]
-ModuleType=TSourceModule
-
-[C:\Sviluppo\BOS\TestArea\cmdbuilder\BuildConfigManager.pas]
-ModuleType=TSourceModule
-
-[c:\program files (x86)\embarcadero\studio\21.0\source\rtl\win\Winapi.Windows.pas]
-ModuleType=TSourceModule
-
-[c:\program files (x86)\embarcadero\studio\21.0\source\rtl\common\System.Win.Registry.pas]
+[C:\Sviluppo\cmdbuilder\BuilderUtils.pas]
 ModuleType=TSourceModule
 
 [default.htm]
 ModuleType=TURLModule
 
+[C:\Sviluppo\cmdbuilder\TrayMainForm.pas]
+ModuleType=TSourceModule
+
+[C:\Sviluppo\cmdbuilder\IniConfig.pas]
+ModuleType=TSourceModule
+
+[C:\Sviluppo\cmdbuilder\ChangePwd.pas]
+ModuleType=TSourceModule
+
+[C:\Sviluppo\cmdbuilder\GestSub.pas]
+ModuleType=TSourceModule
+
 [EditWindow0]
-ViewCount=20
-CurrentEditView=C:\Sviluppo\BOS\TestArea\cmdbuilder\XmlFormConverter.pas
+ViewCount=7
+CurrentEditView=C:\Sviluppo\cmdbuilder\XmlFormConverter.pas
 View0=0
 View1=1
 View2=2
@@ -107,19 +56,6 @@ View3=3
 View4=4
 View5=5
 View6=6
-View7=7
-View8=8
-View9=9
-View10=10
-View11=11
-View12=12
-View13=13
-View14=14
-View15=15
-View16=16
-View17=17
-View18=18
-View19=19
 PercentageSizes=1
 Create=1
 Visible=1
@@ -153,212 +89,69 @@ WelcomePageURL=bds:/default.htm
 
 [View1]
 CustomEditViewType=TEditView
-Module=C:\Sviluppo\BOS\TestArea\cmdbuilder\ChoiceBuilderTray.dpr
-CursorX=12
-CursorY=20
-TopLine=1
+Module=C:\Sviluppo\cmdbuilder\IniConfig.pas
+CursorX=40
+CursorY=117
+TopLine=104
 LeftCol=1
 Elisions=
 Bookmarks=
-EditViewName=C:\Sviluppo\BOS\TestArea\cmdbuilder\ChoiceBuilderTray.dpr
+EditViewName=C:\Sviluppo\cmdbuilder\IniConfig.pas
 
 [View2]
 CustomEditViewType=TEditView
-Module=C:\Sviluppo\BOS\TestArea\cmdbuilder\TrayMainForm.pas
-CursorX=66
-CursorY=1067
-TopLine=1062
+Module=C:\Sviluppo\cmdbuilder\GestSub.pas
+CursorX=133
+CursorY=290
+TopLine=265
 LeftCol=1
 Elisions=
-Bookmarks={1,1073,18}{2,420,24}{3,1605,7}
-EditViewName=C:\Sviluppo\BOS\TestArea\cmdbuilder\TrayMainForm.pas
+Bookmarks=
+EditViewName=C:\Sviluppo\cmdbuilder\GestSub.pas
 
 [View3]
 CustomEditViewType=TEditView
-Module=C:\Sviluppo\BOS\TestArea\cmdbuilder\XmlFormConverter.pas
-CursorX=11
-CursorY=43
-TopLine=7
+Module=C:\Sviluppo\cmdbuilder\TrayMainForm.pas
+CursorX=25
+CursorY=969
+TopLine=912
 LeftCol=1
 Elisions=
-Bookmarks=
-EditViewName=Borland.FormDesignerView
+Bookmarks={1,212,62}
+EditViewName=C:\Sviluppo\cmdbuilder\TrayMainForm.pas
 
 [View4]
 CustomEditViewType=TEditView
-Module=C:\Sviluppo\BOS\TestArea\cmdbuilder\SQLPrettyPrint.pas
-CursorX=50
-CursorY=98
-TopLine=74
-LeftCol=1
-Elisions=
-Bookmarks=
-EditViewName=C:\Sviluppo\BOS\TestArea\cmdbuilder\SQLPrettyPrint.pas
-
-[View5]
-CustomEditViewType=TEditView
-Module=C:\Sviluppo\BOS\TestArea\cmdbuilder\XMLMultirefConverter.pas
-CursorX=42
-CursorY=390
-TopLine=379
-LeftCol=1
-Elisions=
-Bookmarks=
-EditViewName=C:\Sviluppo\BOS\TestArea\cmdbuilder\XMLMultirefConverter.pas
-
-[View6]
-CustomEditViewType=TEditView
-Module=c:\program files (x86)\embarcadero\studio\21.0\SOURCE\RTL\SYS\System.SysUtils.pas
-CursorX=1
-CursorY=25110
-TopLine=25077
-LeftCol=1
-Elisions=
-Bookmarks=
-EditViewName=c:\program files (x86)\embarcadero\studio\21.0\SOURCE\RTL\SYS\System.SysUtils.pas
-
-[View7]
-CustomEditViewType=TEditView
-Module=c:\program files (x86)\embarcadero\studio\21.0\SOURCE\RTL\SYS\System.pas
-CursorX=1
-CursorY=2160
-TopLine=2142
-LeftCol=1
-Elisions=
-Bookmarks=
-EditViewName=c:\program files (x86)\embarcadero\studio\21.0\SOURCE\RTL\SYS\System.pas
-
-[View8]
-CustomEditViewType=TEditView
-Module=c:\program files (x86)\embarcadero\studio\21.0\SOURCE\XML\Xml.XMLIntf.pas
-CursorX=3
-CursorY=170
-TopLine=154
-LeftCol=1
-Elisions=
-Bookmarks=
-EditViewName=c:\program files (x86)\embarcadero\studio\21.0\SOURCE\XML\Xml.XMLIntf.pas
-
-[View9]
-CustomEditViewType=TEditView
-Module=C:\Sviluppo\BOS\TestArea\cmdbuilder\IniConfig.pas
-CursorX=42
-CursorY=61
-TopLine=53
-LeftCol=1
-Elisions=
-Bookmarks={1,100,15}
-EditViewName=Borland.FormDesignerView
-
-[View10]
-CustomEditViewType=TEditView
-Module=C:\Sviluppo\BOS\TestArea\cmdbuilder\Unit1.pas
-CursorX=36
-CursorY=264
-TopLine=1
-LeftCol=1
-Elisions=
-Bookmarks=
-EditViewName=C:\Sviluppo\BOS\TestArea\cmdbuilder\Unit1.pas
-
-[View11]
-CustomEditViewType=TEditView
-Module=C:\Sviluppo\BOS\TestArea\cmdbuilder\ConfigWizardForm.pas
-CursorX=14
-CursorY=100
-TopLine=1
-LeftCol=1
-Elisions=
-Bookmarks=
-EditViewName=C:\Sviluppo\BOS\TestArea\cmdbuilder\ConfigWizardForm.pas
-
-[View12]
-CustomEditViewType=TEditView
-Module=C:\Sviluppo\BOS\TestArea\cmdbuilder\GestSub.pas
-CursorX=74
-CursorY=190
-TopLine=184
-LeftCol=1
-Elisions=
-Bookmarks={1,285,86}
-EditViewName=Borland.FormDesignerView
-
-[View13]
-CustomEditViewType=TEditView
-Module=C:\Sviluppo\BOS\TestArea\cmdbuilder\BuildConfigManager.pas
-CursorX=1
-CursorY=1
+Module=C:\Sviluppo\cmdbuilder\ChangePwd.pas
+CursorX=20
+CursorY=75
 TopLine=64
 LeftCol=1
 Elisions=
-Bookmarks=
-EditViewName=C:\Sviluppo\BOS\TestArea\cmdbuilder\BuildConfigManager.pas
+Bookmarks={7,75,61}
+EditViewName=C:\Sviluppo\cmdbuilder\ChangePwd.pas
 
-[View14]
+[View5]
 CustomEditViewType=TEditView
-Module=C:\Sviluppo\BOS\TestArea\cmdbuilder\ConfigManager.pas
-CursorX=19
-CursorY=1
-TopLine=1
+Module=C:\Sviluppo\cmdbuilder\BuilderUtils.pas
+CursorX=3
+CursorY=266
+TopLine=252
 LeftCol=1
 Elisions=
 Bookmarks=
-EditViewName=C:\Sviluppo\BOS\TestArea\cmdbuilder\ConfigManager.pas
+EditViewName=C:\Sviluppo\cmdbuilder\BuilderUtils.pas
 
-[View15]
+[View6]
 CustomEditViewType=TEditView
-Module=C:\Sviluppo\BOS\TestArea\cmdbuilder\BuilderUtils.pas
-CursorX=1
-CursorY=91
-TopLine=73
-LeftCol=1
-Elisions=
-Bookmarks=
-EditViewName=C:\Sviluppo\BOS\TestArea\cmdbuilder\BuilderUtils.pas
-
-[View16]
-CustomEditViewType=TEditView
-Module=C:\Sviluppo\BOS\TestArea\cmdbuilder\SQLServerDetection.pas
-CursorX=33
-CursorY=63
-TopLine=41
-LeftCol=1
-Elisions=
-Bookmarks=
-EditViewName=C:\Sviluppo\BOS\TestArea\cmdbuilder\SQLServerDetection.pas
-
-[View17]
-CustomEditViewType=TEditView
-Module=c:\program files (x86)\embarcadero\studio\21.0\source\rtl\common\System.Win.Registry.pas
-CursorX=35
-CursorY=345
-TopLine=317
-LeftCol=1
-Elisions=
-Bookmarks=
-EditViewName=c:\program files (x86)\embarcadero\studio\21.0\source\rtl\common\System.Win.Registry.pas
-
-[View18]
-CustomEditViewType=TEditView
-Module=c:\program files (x86)\embarcadero\studio\21.0\source\rtl\win\Winapi.Windows.pas
+Module=C:\Sviluppo\cmdbuilder\XmlFormConverter.pas
 CursorX=22
-CursorY=38550
-TopLine=38522
+CursorY=90
+TopLine=83
 LeftCol=1
 Elisions=
 Bookmarks=
-EditViewName=c:\program files (x86)\embarcadero\studio\21.0\source\rtl\win\Winapi.Windows.pas
-
-[View19]
-CustomEditViewType=TEditView
-Module=C:\Sviluppo\BOS\TestArea\cmdbuilder\RegistryReader.pas
-CursorX=20
-CursorY=1
-TopLine=370
-LeftCol=1
-Elisions=
-Bookmarks=
-EditViewName=C:\Sviluppo\BOS\TestArea\cmdbuilder\RegistryReader.pas
+EditViewName=Borland.FormDesignerView
 
 [Watches]
 Count=4
@@ -478,11 +271,11 @@ State=0
 Left=0
 Top=0
 Width=1551
-Height=7162
+Height=8851
 MaxLeft=-1
 MaxTop=-1
 ClientWidth=1551
-ClientHeight=7162
+ClientHeight=8851
 TBDockHeight=7162
 LRDockWidth=2000
 Dockable=1
@@ -510,8 +303,8 @@ SplitPos=158
 
 [PropInspDesignerSelection]
 ArrangeBy=Name
-SelectedItem=Name,Transaction
-ExpandedItems=EventKinds=1,FileColumns=0,"LiveBindings Designer=0",ConnectedStoredUsage=0,FetchOptions=0,FormatOptions=0,Params=0,ResourceOptions=0,TxOptions=0,UpdateOptions=0
+SelectedItem=AcceptFiles,
+ExpandedItems=Anchors=0,BevelEdges=0,Constraints=0,Font=0,LiveBindings=0,"LiveBindings Designer=1",Margins=0,StyleElements=0,Touch=1,ActiveLineSettings=1,AutoCompletion=1,ClipboardFormats=1,CodeFolding=1,Gutter=1,MarkerList=0,OleDropTarget=0,PrintOptions=0,SyntaxStyles=0,UILanguage=1,UrlStyle=1,CommentStyle=1,NumberStyle=1,CommentStyle.Style=1,NumberStyle.Style=1,"LiveBindings Designer.Element Layers=1",SyntaxStyles.CommentStyle=0,SyntaxStyles.LiveBindings=0,"SyntaxStyles.LiveBindings Designer=0",SyntaxStyles.NumberStyle=0,AutoCompletion.Font=0,Gutter.Font=0,UrlStyle.Style=0,Touch.InteractiveGestureOptions=0,Touch.InteractiveGestures=0,Touch.TabletOptions=0
 
 [frmDesignPreview]
 PercentageSizes=1
@@ -519,8 +312,8 @@ Create=1
 Visible=0
 Docked=1
 State=0
-Left=-224
-Top=-451
+Left=0
+Top=0
 Width=2512
 Height=5955
 MaxLeft=-1
@@ -539,7 +332,7 @@ Visible=0
 Docked=1
 State=0
 Left=0
-Top=0
+Top=3
 Width=270
 Height=366
 MaxLeft=-1
@@ -594,8 +387,8 @@ StayOnTop=0
 Column0Width=145
 Column1Width=100
 Column2Width=115
-Column3Width=619
-Column4Width=10
+Column3Width=374
+Column4Width=245
 
 [LocalVarsWindow]
 PercentageSizes=1
@@ -744,8 +537,8 @@ Create=1
 Visible=0
 Docked=1
 State=0
-Left=-224
-Top=-451
+Left=-276
+Top=-500
 Width=1848
 Height=3139
 MaxLeft=-1
@@ -846,14 +639,14 @@ Create=1
 Visible=0
 Docked=1
 State=0
-Left=-224
-Top=-451
-Width=5309
-Height=4871
+Left=0
+Top=0
+Width=1551
+Height=8851
 MaxLeft=-1
 MaxTop=-1
-ClientWidth=5309
-ClientHeight=4871
+ClientWidth=1551
+ClientHeight=8851
 TBDockHeight=4871
 LRDockWidth=5309
 Dockable=1
@@ -951,5 +744,5 @@ Dockable=1
 StayOnTop=0
 TabPosition=1
 ActiveTabID=PropertyInspector
-TabDockClients=ProjectManager,PropertyInspector,ToolForm,StructureView,TemplateView,ClassBrowserTool,frmDesignPreview,DataExplorerContainer,ModelViewTool
+TabDockClients=ProjectManager,PropertyInspector,ToolForm,StructureView,TemplateView,ClassBrowserTool,ModelViewTool,frmDesignPreview,DataExplorerContainer
 

@@ -136,10 +136,14 @@
         <DCC_DcpOutput>\DCU</DCC_DcpOutput>
         <DCC_ExeOutput>.\Bin</DCC_ExeOutput>
         <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
-        <VerInfo_Keys>CompanyName=;FileDescription=$(MSBuildProjectName);FileVersion=1.0.0.0;InternalName=;LegalCopyright=;LegalTrademarks=;OriginalFilename=;ProductName=$(MSBuildProjectName);ProductVersion=1.0.0.0;Comments=;ProgramID=com.embarcadero.$(MSBuildProjectName)</VerInfo_Keys>
+        <VerInfo_Keys>CompanyName=Vivaticket ;FileDescription=$(MSBuildProjectName);FileVersion=2.2.2.5;InternalName=Choice Builder;LegalCopyright=Vivaticket ;LegalTrademarks=;OriginalFilename=;ProductName=$(MSBuildProjectName);ProductVersion=2.2.2.5;Comments=;ProgramID=com.embarcadero.$(MSBuildProjectName)</VerInfo_Keys>
         <DCC_DcuOutput>\DCU</DCC_DcuOutput>
         <DCC_Define>madExcept;LeakChecking;$(DCC_Define)</DCC_Define>
         <DCC_UnitSearchPath>S:\work\Source\Packages\OtnCL7\LockBox\source;$(DCC_UnitSearchPath)</DCC_UnitSearchPath>
+        <VerInfo_MajorVer>2</VerInfo_MajorVer>
+        <VerInfo_MinorVer>2</VerInfo_MinorVer>
+        <VerInfo_Release>2</VerInfo_Release>
+        <VerInfo_Build>5</VerInfo_Build>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Cfg_2_Win64)'!=''">
         <AppEnableRuntimeThemes>true</AppEnableRuntimeThemes>
@@ -190,6 +194,7 @@
         <DCCReference Include="Encryption\Part_I\DECHash.pas"/>
         <DCCReference Include="Encryption\Part_I\DECRandom.pas"/>
         <DCCReference Include="Encryption\Part_I\DECUtil.pas"/>
+        <DCCReference Include="SyntaxHighlighter.pas"/>
         <BuildConfiguration Include="Debug">
             <Key>Cfg_2</Key>
             <CfgParent>Base</CfgParent>

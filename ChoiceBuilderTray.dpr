@@ -31,7 +31,8 @@ uses
   DECFmt in 'Encryption\Part_I\DECFmt.pas',
   DECHash in 'Encryption\Part_I\DECHash.pas',
   DECRandom in 'Encryption\Part_I\DECRandom.pas',
-  DECUtil in 'Encryption\Part_I\DECUtil.pas';
+  DECUtil in 'Encryption\Part_I\DECUtil.pas',
+  SyntaxHighlighter in 'SyntaxHighlighter.pas';
 
 {$R *.res}
 

@@ -103,6 +103,7 @@ type
     brChangePwd: TcxButton;
     gbEditor: TGroupBox;
     Case1: TMenuItem;
+    lVersion: TLabel;
     procedure FormCreate(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
@@ -167,7 +168,7 @@ type
     function GetDelphiProcessID: DWORD;
     procedure SetActive(const ATag: Integer);
     procedure ClearBuildButtons;
-    procedure Setversion;
+    Function Setversion(Const ACaption, AExeName: String): String;
     procedure CreateBuildButton(Config: TBuildConfiguration; Index: Integer);
     procedure SetDriveList;
 
@@ -440,17 +441,20 @@ begin
   initializeDrive;
 
   if lbdrive.Items.Count >0 then
-    Setversion;
+    mnuBOSServices.Caption := 'BOS V ' + Setversion('BOS Version : ', FRecConfig.PathBOS);
+
+  lVersion.caption := 'Application Version ' + SetVersion('Application Version : ', ParamStr(0));
+
 end;
 
 
-procedure TfrmTrayMain.Setversion;
+Function TfrmTrayMain.Setversion(Const ACaption, AExeName: String): String;
 Var BOSVersion: TFileVersionInfo;
 begin
-  BOSVersion := GetFileVersion(FRecConfig.PathBOS);
-  mnuBOSServices.Caption := 'BOS V ' + BOSVersion.Major.ToString + '.' + BOSVersion.Minor.ToString +
-                            '.' + BOSVersion.Release.ToString + '.' + BOSVersion.Build.ToString;
-  LogMessage('BOS Version : ' + mnuBOSServices.Caption);
+  BOSVersion := GetFileVersion(AExeName);
+  Result := BOSVersion.Major.ToString + '.' + BOSVersion.Minor.ToString +
+            '.' + BOSVersion.Release.ToString + '.' + BOSVersion.Build.ToString;
+  LogMessage(ACaption + Result);
 end;
 
 procedure TfrmTrayMain.FormDestroy(Sender: TObject);
@@ -926,9 +930,12 @@ end;
 procedure TfrmTrayMain.mnuDriveClick(Sender: TObject);
 Var lLetter: Char;
     lResponse: Integer;
+    lDelphi, lDelphiOpen: Boolean;
 begin
   lResponse := mrYes;
-  if GetDelphiProcessID > 0 then
+  lDelphiOpen := False;
+  lDelphi := GetDelphiProcessID > 0;
+  if lDelphi then
     lResponse := MessageDlg('Warning: Delphi is currently running.' + #13#10 +
                           'Continue anyway?',
                           mtWarning,
@@ -937,6 +944,13 @@ begin
 
   if (lResponse = mrYes) then
   begin
+    if lDelphi then
+    begin
+      LogMessage('=== Delphi running will be killed  ===');
+      KillProcessByName('BDS.exe');
+      lDelphiOpen := chkDelphiOff.Checked;
+    end;
+
     lLetter := edtDriveLetter.Text[1];
     if CDSPath.Locate('TAG', TMenuItem(Sender).tag, [loCaseInsensitive, loPartialKey]) then
     begin
@@ -955,7 +969,12 @@ begin
       ShowTrayNotification('Choice Builder', ' Drive mapped: ' + lLetter + ':  => ' + CDSPath.FieldByName('Path').AsString);
     end;
     SetDriveList;
-    Setversion;
+    Setversion('', FRecConfig.PathBOS);
+    if lDelphiOpen and lDelphi then
+    begin
+      LogMessage('=== Delphi was killed ... now reborn  ===');
+      RunAndWait('BDS.exe');
+    end;
   end;
 
 end;
@@ -1074,7 +1093,7 @@ begin
   if Assigned(lConfig) then
   begin
     ExecuteBuild(lConfig);
-    Setversion;
+    Setversion('', FRecConfig.PathBOS);
   end;
 end;
 
@@ -1083,7 +1102,7 @@ Var lFormConv:  TFConvert;
 begin
   lFormConv := TFConvert.Create(Nil);
   try
-    if (Sender as TButton).Tag = 1 then
+    if (Sender as TcxButton).Tag = 1 then
     begin
       lFormConv.Caption := 'XML pretty converter';
       lFormConv.XmlMemo.SyntaxStyles := lFormConv.AdvXMLMemoStyler

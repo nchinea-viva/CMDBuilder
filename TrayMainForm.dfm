@@ -391,7 +391,6 @@ object frmTrayMain: TfrmTrayMain
       Align = alTop
       BevelOuter = bvLowered
       TabOrder = 1
-      ExplicitTop = 160
       object lblStatus: TLabel
         Left = 8
         Top = 8
@@ -412,37 +411,47 @@ object frmTrayMain: TfrmTrayMain
         Height = 13
       end
       object lblProgress: TLabel
-        Left = 200
+        Left = 160
         Top = 24
         Width = 38
         Height = 13
         Caption = 'Project:'
-        Visible = False
       end
       object lblSubProgress: TLabel
-        Left = 450
+        Left = 202
         Top = 24
         Width = 59
         Height = 13
         Caption = 'Compilation:'
-        Visible = False
+      end
+      object lVersion: TLabel
+        Left = 591
+        Top = 23
+        Width = 58
+        Height = 16
+        Alignment = taRightJustify
+        Caption = 'Version: '
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clMaroon
+        Font.Height = -13
+        Font.Name = 'Tahoma'
+        Font.Style = [fsBold, fsItalic]
+        ParentFont = False
       end
       object progressBar: TProgressBar
-        Left = 200
+        Left = 160
         Top = 8
         Width = 200
         Height = 17
         TabOrder = 0
-        Visible = False
       end
       object progressBarSub: TProgressBar
-        Left = 450
+        Left = 202
         Top = 8
         Width = 150
         Height = 17
         Style = pbstMarquee
         TabOrder = 1
-        Visible = False
       end
     end
     object pnlLog: TPanel
@@ -453,8 +462,6 @@ object frmTrayMain: TfrmTrayMain
       Align = alClient
       BevelOuter = bvLowered
       TabOrder = 2
-      ExplicitTop = 200
-      ExplicitHeight = 449
       object lblLog: TLabel
         Left = 1
         Top = 1
@@ -488,15 +495,14 @@ object frmTrayMain: TfrmTrayMain
         TabOrder = 0
         WordWrap = False
         Zoom = 100
-        ExplicitHeight = 434
       end
     end
   end
   object pGestDrive: TPanel
-    Left = 607
-    Top = 576
-    Width = 13
-    Height = 55
+    Left = 608
+    Top = 600
+    Width = 25
+    Height = 25
     Anchors = [akLeft, akTop, akRight, akBottom]
     BevelOuter = bvNone
     TabOrder = 1
