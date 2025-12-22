@@ -382,6 +382,15 @@ object frmTrayMain: TfrmTrayMain
           TabOrder = 2
         end
       end
+      object cxButton1: TcxButton
+        Left = 408
+        Top = 136
+        Width = 75
+        Height = 25
+        Caption = 'cxButton1'
+        TabOrder = 17
+        OnClick = cxButton1Click
+      end
     end
     object pnlStatus: TPanel
       Left = 0

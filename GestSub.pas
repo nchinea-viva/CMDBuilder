@@ -90,7 +90,7 @@ type
     edtSQLServer: TEdit;
     Label14: TLabel;
     edtCaseStudio: TEdit;
-    btnCaseStudio: TcxButton;
+    btnLogPath: TcxButton;
     procedure DBGrid1DrawColumnCell(Sender: TObject; const Rect: TRect;
       DataCol: Integer; Column: TColumn; State: TGridDrawState);
     procedure cxButton2Click(Sender: TObject);
