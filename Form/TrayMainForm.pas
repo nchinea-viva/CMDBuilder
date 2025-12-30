@@ -1170,7 +1170,7 @@ begin
     lproj := Untitled1.LoadProject(lPath);
     for i := 0 to lproj.ItemGroup.Count -1 do
     begin
-    DprojParser := TDprojParser.Create;
+      DprojParser := TDprojParser.Create;
       try
         DprojParser.DprojFile :=  IncludeTrailingPathDelimiter( ExtractFilePath(lPath) ) + lproj.ItemGroup[i].Include;
         DprojParser.Major := aMajor;

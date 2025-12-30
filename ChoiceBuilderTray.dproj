@@ -154,36 +154,32 @@
         <DelphiCompile Include="$(MainSource)">
             <MainSource>MainSource</MainSource>
         </DelphiCompile>
-        <DCCReference Include="TrayMainForm.pas">
+        <DCCReference Include="Form\TrayMainForm.pas">
             <Form>frmTrayMain</Form>
         </DCCReference>
         <DCCReference Include="SubstManager.pas"/>
-        <DCCReference Include="GestSub.pas">
+        <DCCReference Include="Form\GestSub.pas">
             <Form>FGestSubst</Form>
         </DCCReference>
         <DCCReference Include="ConfigManager.pas"/>
         <DCCReference Include="BuilderUtils.pas"/>
         <DCCReference Include="BuildConfigManager.pas"/>
-        <DCCReference Include="ConfigWizardForm.pas">
+        <DCCReference Include="Form\ConfigWizardForm.pas">
             <Form>frmConfigWizard</Form>
         </DCCReference>
-        <DCCReference Include="Unit1.pas"/>
         <DCCReference Include="SQLServerDetection.pas"/>
         <DCCReference Include="RegistryReader.pas"/>
-        <DCCReference Include="IniConfig.pas">
+        <DCCReference Include="Form\IniConfig.pas">
             <Form>FIniConfig</Form>
-            <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="XmlFormConverter.pas">
+        <DCCReference Include="Form\XmlFormConverter.pas">
             <Form>FConvert</Form>
-            <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="XMLMultirefConverter.pas"/>
         <DCCReference Include="SQLPrettyPrint.pas"/>
         <DCCReference Include="SQLFormatter.pas"/>
-        <DCCReference Include="ChangePwd.pas">
+        <DCCReference Include="Form\ChangePwd.pas">
             <Form>FChangePwd</Form>
-            <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="Encryption\Part_I\ASN1.pas"/>
         <DCCReference Include="Encryption\Part_I\CPU.pas"/>

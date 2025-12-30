@@ -103,8 +103,6 @@ begin
       end;
     end;
 
-
-
     FXMLDocument.SaveToFile(Dprojfile);
   except
   end;

@@ -483,7 +483,6 @@ object frmTrayMain: TfrmTrayMain
       Align = alTop
       BevelOuter = bvLowered
       TabOrder = 1
-      ExplicitTop = 181
       object lblStatus: TLabel
         Left = 8
         Top = 8
@@ -556,8 +555,6 @@ object frmTrayMain: TfrmTrayMain
       Align = alClient
       BevelOuter = bvLowered
       TabOrder = 2
-      ExplicitTop = 221
-      ExplicitHeight = 428
       object lblLog: TLabel
         Left = 1
         Top = 1
@@ -591,7 +588,6 @@ object frmTrayMain: TfrmTrayMain
         TabOrder = 0
         WordWrap = False
         Zoom = 100
-        ExplicitHeight = 413
       end
     end
   end
