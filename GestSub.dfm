@@ -21,7 +21,7 @@ object FGestSubst: TFGestSubst
     Top = 41
     Width = 653
     Height = 550
-    ActivePage = tsConfig
+    ActivePage = tsPath
     Align = alClient
     TabOrder = 0
     OnChange = PageControlChange
@@ -244,7 +244,7 @@ object FGestSubst: TFGestSubst
       end
       object Label7: TLabel
         Left = 16
-        Top = 278
+        Top = 326
         Width = 61
         Height = 13
         Caption = 'Drive letter :'
@@ -282,6 +282,13 @@ object FGestSubst: TFGestSubst
         Width = 82
         Height = 13
         Caption = 'Case Studio Path'
+      end
+      object Label15: TLabel
+        Left = 16
+        Top = 236
+        Width = 244
+        Height = 13
+        Caption = 'Select Project Group ( .groupproj ) separated by '#39','#39
       end
       object cxImage1: TcxImage
         Left = 192
@@ -517,7 +524,7 @@ object FGestSubst: TFGestSubst
       end
       object btnSaveConfig: TcxButton
         Left = 475
-        Top = 319
+        Top = 359
         Width = 92
         Height = 25
         Caption = 'Save'
@@ -533,7 +540,7 @@ object FGestSubst: TFGestSubst
       end
       object chkVerbose: TCheckBox
         Left = 16
-        Top = 243
+        Top = 291
         Width = 97
         Height = 17
         Caption = 'Verbose Output'
@@ -541,7 +548,7 @@ object FGestSubst: TFGestSubst
       end
       object chkCleanFirst: TCheckBox
         Left = 128
-        Top = 243
+        Top = 291
         Width = 97
         Height = 17
         Caption = 'Clean First'
@@ -551,7 +558,7 @@ object FGestSubst: TFGestSubst
       end
       object chkShowCompilerOutput: TCheckBox
         Left = 241
-        Top = 243
+        Top = 291
         Width = 137
         Height = 17
         Caption = 'Show Compiler Output'
@@ -561,7 +568,7 @@ object FGestSubst: TFGestSubst
       end
       object chkDelphiOff: TCheckBox
         Left = 384
-        Top = 243
+        Top = 291
         Width = 137
         Height = 17
         Caption = 'Automatic Delphi OFF'
@@ -569,7 +576,7 @@ object FGestSubst: TFGestSubst
       end
       object edtDriveLetter: TEdit
         Left = 83
-        Top = 275
+        Top = 323
         Width = 28
         Height = 21
         Alignment = taCenter
@@ -726,6 +733,54 @@ object FGestSubst: TFGestSubst
           CFC73DF50000000049454E44AE426082}
         TabOrder = 19
         OnClick = btnBosPathClick
+      end
+      object edtGroup: TEdit
+        Left = 16
+        Top = 255
+        Width = 513
+        Height = 21
+        TabOrder = 20
+      end
+      object btnGroup: TcxButton
+        Tag = 7
+        Left = 531
+        Top = 253
+        Width = 36
+        Height = 25
+        OptionsImage.Glyph.SourceDPI = 96
+        OptionsImage.Glyph.Data = {
+          89504E470D0A1A0A0000000D49484452000000100000001008060000001FF3FF
+          610000001974455874536F6674776172650041646F626520496D616765526561
+          647971C9653C0000000D744558745469746C6500466F6C6465723B035AD15300
+          00033949444154785E4D8F4F681C6518879F6CC624A6D29A3524DB481A2A49AD
+          6952252D9456A828F4A0424FA21E2CCDC18378110441C84DD08B9756941E455A
+          04F5905623429A2AD294368626B14D36BBC936A49B6C369BCD6667777677E69B
+          EFCF380322BEF0F07B2FCFEFFD3EEBD6E7AF4310604C84412983D63A4AA40C33
+          C48F7661F0A54269DED43AC87EFCE3C24300AB925DE3FFD3DC71B05997F35107
+          81094005C8E6FD8352990BDA30DAFBC29144E6EFD4952FCEF57D2814CD16405B
+          674F8B36E67CD83CAA9439275BE35F86C2D7E1FE963466F4A9CEC489FE91118E
+          9C38C6E2F41D56EECD1F5786DB46D36FB5C4BB2F98804B5D47CFC47B475EA37B
+          6098E4D40F634B7F4C8C1D1E1AA1FFE429DADB9B494FDFE4B7AF2E512A383C3F
+          DCF77267BC8DF1F1F95B9652FA93573FBA12DF9F7816BC758CF32783C7255DDD
+          6FB0B592E7EED5CBD8458743C78678E995B3C43B9E409472DCB9394BC5D3494B
+          494D1028CCEE2FE41EFE452EF988ADD4066DCF1CA26B608893E7DF23DE7500DF
+          DEA0BEB140359DC12DE5C9E7147BAE9A8B5E80120D76363364EE17387CFA1D5E
+          7C7B9896D618AAB28A2826719253B8BBEB08A786AC7B48D767A71233E952E39E
+          653428E1905F4A93183C45EFD000AA781BB79C42D54A78D56A283A28D7437902
+          E5FBD88EC176839DE552A36869030DBBC8567A8DD3673F40575790F622C6AD23
+          5D379422044A44A8080A2583239A16011116189CED0DBCAACB81440F627D8A40
+          FAA88848727DB42790224C21515251B49B70A59E05A4650C94B22BECEBEE03DD
+          C0D4B6D17E2479A810ED4797235951A9695637623CDE8D794557DC202A501A9C
+          C2265DCF1DC534721825D12292BC307D84EB935917ACAE1BD60AB1BD625DDEC8
+          561BDFCCE49D07170713C6D226C02DEFD1D1D387AE6F627C117D8142CE6179A9
+          4CFA9150B93D319D75C4F7936BE509A00A7893179FD4D766C0D23AC073EB3CDD
+          7390DAF63CC9992CA907BB3CCED733D98ABC3EBBE95C4D97DC2CD000E4EFEFEF
+          0BB432441E806574A04CAC89B99F7F22757FA1BA658B89E5A2FBDDAFA9F21C50
+          07C4FC674346546D3CC7414B496080E0DF82561AEFEED9FEE5B9C9BB13D7E677
+          C76D5755010FD09F9EE90DA40AF8F67A19A903B46E479A300DFFCD3F27844635
+          CFC73DF50000000049454E44AE426082}
+        TabOrder = 21
+        OnClick = btnGroupClick
       end
     end
     object tsBuilder: TTabSheet

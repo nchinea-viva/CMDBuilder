@@ -91,6 +91,9 @@ type
     Label14: TLabel;
     edtCaseStudio: TEdit;
     btnLogPath: TcxButton;
+    Label15: TLabel;
+    edtGroup: TEdit;
+    btnGroup: TcxButton;
     procedure DBGrid1DrawColumnCell(Sender: TObject; const Rect: TRect;
       DataCol: Integer; Column: TColumn; State: TGridDrawState);
     procedure cxButton2Click(Sender: TObject);
@@ -99,6 +102,7 @@ type
     procedure btnSaveConfigClick(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure btnBosPathClick(Sender: TObject);
+    procedure btnGroupClick(Sender: TObject);
     procedure lbResourceClick(Sender: TObject);
     procedure lvProjectsClick(Sender: TObject);
     procedure btnPathPrjClick(Sender: TObject);
@@ -202,6 +206,7 @@ begin
   FConfig.WriteString('Settings', 'edtXlsConv', edtXlsConv.Text);
   FConfig.WriteString('Settings', 'edtCaseStudio', edtCaseStudio.Text);
   FConfig.WriteString('Settings', 'edtSQLServer', edtSQLServer.Text);
+  FConfig.WriteString('Settings', 'edtGroup', edtGroup.Text);
 
 //  FRecConfig := TRecConfig.GetInstance(ledtBOS, ledtAPPBOS, ledtAlone, lOvwTools, lXlsConv, lSqlServer)
 
@@ -214,6 +219,26 @@ begin
   FConfig := AConfig;
   FBuild  := ABuild;
 
+end;
+
+procedure TFGestSubst.btnGroupClick(Sender: TObject);
+var
+  OpenDialog: TOpenDialog;
+begin
+  OpenDialog := TOpenDialog.Create(nil);
+  try
+    OpenDialog.Title := 'Select .groupproj file';
+    OpenDialog.Filter := 'File (*.groupproj)|*.groupproj';
+    if OpenDialog.Execute then
+    begin
+      if edtGroup.Text <> '' then
+        edtGroup.Text := edtGroup.Text + ',' + OpenDialog.FileName
+      else
+        edtGroup.Text := OpenDialog.FileName
+    end;
+  finally
+    OpenDialog.Free;
+  end;
 end;
 
 procedure TFGestSubst.cxButton2Click(Sender: TObject);
@@ -289,6 +314,9 @@ begin
   edtXlsConv.Text     := FConfig.ReadString('Settings', 'edtXlsConv', 's:\work\R&D\XslConverter.exe');
   edtCaseStudio.Text  := FConfig.ReadString('Settings', 'edtCaseStudio', 'C:\Program Files (x86)\RKSoft\CASEStudio2\Bin\CASEStud.exe');
   edtSQLServer.Text   := FConfig.ReadString('Settings', 'edtSQLServer', 'localhost');
+  edtGroup.Text       := FConfig.ReadString('Settings', 'edtGroup', 'S:\work\Source\Modules\OvwModules.groupproj,S:\work\Source\Modules\OvwPackages.groupproj');
+
+
 
   lbResource.Items.Clear;
 

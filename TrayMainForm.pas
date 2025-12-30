@@ -15,14 +15,13 @@ uses
   , BuilderUtils
   , BuildConfigManager
   , SQLServerDetection
-  , SoapTestForm
   , ConfigWizardForm, System.ImageList, Vcl.ImgList, cxImageList,
   FireDAC.Stan.Intf, FireDAC.Stan.Option, FireDAC.Stan.Error, FireDAC.UI.Intf,
   FireDAC.Phys.Intf, FireDAC.Stan.Def, FireDAC.Stan.Pool, FireDAC.Stan.Async,
   FireDAC.Phys, FireDAC.VCLUI.Wait, FireDAC.Stan.Param, FireDAC.DatS,
   FireDAC.DApt.Intf, FireDAC.DApt, FireDAC.Comp.DataSet, FireDAC.Comp.Client,
   FireDAC.Phys.MSSQL, FireDAC.Phys.MSSQLDef, cxControls, cxContainer, cxEdit,
-  cxTextEdit
+  cxTextEdit, Vcl.Samples.Spin
   ;
 
 type
@@ -105,7 +104,17 @@ type
     gbEditor: TGroupBox;
     Case1: TMenuItem;
     lVersion: TLabel;
-    cxButton1: TcxButton;
+    btnUpdVersion: TcxButton;
+    eMajor: TSpinEdit;
+    Label2: TLabel;
+    eMinor: TSpinEdit;
+    Label3: TLabel;
+    Label4: TLabel;
+    eRelease: TSpinEdit;
+    eBuild: TSpinEdit;
+    Label5: TLabel;
+    eAdditionalVersionInfo: TEdit;
+    Label6: TLabel;
     procedure FormCreate(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
@@ -135,7 +144,7 @@ type
     procedure btSessionClick(Sender: TObject);
     procedure mnuDatabaseClick(Sender: TObject);
     procedure btXMLClick(Sender: TObject);
-    procedure cxButton1Click(Sender: TObject);
+    procedure btnUpdVersionClick(Sender: TObject);
   private
     FStartTime: TDateTime;
     FLogFileName: string;
@@ -174,6 +183,7 @@ type
     Function Setversion(Const ACaption, AExeName: String): String;
     procedure CreateBuildButton(Config: TBuildConfiguration; Index: Integer);
     procedure SetDriveList;
+    procedure ChangeDprojVersion(aMajor, aMinor, aRelease, aBuild, aFileVersion: string);
 
   public
     FRecConfig: TRecConfig;
@@ -190,7 +200,7 @@ implementation
 
 uses
   Winapi.ShellAPI, System.Win.Registry, TlHelp32, System.UITypes, System.Types,
-  System.IniFiles, IniConfig, XmlFormConverter, ChangePwd;
+  System.IniFiles, IniConfig, XmlFormConverter, ChangePwd, Untitled1, UnParseDproj;
 
 procedure TfrmTrayMain.LoadSettings;
 Var
@@ -201,6 +211,7 @@ Var
     lXlsConv   : String;
     lCaseStudio: String;
     lSqlServer : String;
+    lAppGroup  : String;
 begin
   chkVerbose.Checked := FConfig.ReadBool('Settings', 'chkVerbose', False);
   chkCleanFirst.Checked := FConfig.ReadBool('Settings', 'chkCleanFirst', False);
@@ -215,9 +226,11 @@ begin
   lXlsConv   := FConfig.ReadString('Settings', 'edtXlsConv', 's:\work\R&D\XslConverter.exe');
   lCaseStudio:= FConfig.ReadString('Settings', 'edtCaseStudio', 'C:\Program Files (x86)\RKSoft\CASEStudio2\Bin\CASEStud.exe');
   lSqlServer := FConfig.ReadString('Settings', 'edtSQLServer', 'LocalHost' );
+  lAppGroup  := FConfig.ReadString('Settings', 'edtGroup', 'S:\work\Source\Modules\OvwModules.groupproj,S:\work\Source\Modules\OvwPackages.groupproj' );
+
 
   FRecConfig := TRecConfig.GetInstance;
-  FRecConfig.SetValues(ledtBOS, ledtAPPBOS, ledtAlone, lOvwTools, lXlsConv, lCaseStudio, lSqlServer);
+  FRecConfig.SetValues(ledtBOS, ledtAPPBOS, ledtAlone, lOvwTools, lXlsConv, lCaseStudio, lSqlServer, lAppGroup);
 
 end;
 
@@ -299,16 +312,12 @@ begin
 
 end;
 
-procedure TfrmTrayMain.cxButton1Click(Sender: TObject);
-Var lFormChange:  TFormSoapTest;
+procedure TfrmTrayMain.btnUpdVersionClick(Sender: TObject);
+var
+  lFileVersion : string;
 begin
-  lFormChange := TFormSoapTest.Create(Nil);
-  try
-  //  lFormChange.SqlServer := FRecConfig.SqlServer;
-    lFormChange.ShowModal;
-  finally
-    lFormChange.Free;
-  end;
+  lFileVersion := IntToStr(eMajor.Value) +'.'+ IntToStr(eMinor.Value) +'.'+ IntToStr(eRelease.Value) +'.'+ IntToStr(eBuild.Value);
+  ChangeDprojVersion(IntToStr(eMajor.Value) , IntToStr(eMinor.Value) , IntToStr(eRelease.Value) , IntToStr(eBuild.Value), lFileVersion);
 end;
 
 procedure TfrmTrayMain.cxButton2Click(Sender: TObject);
@@ -454,11 +463,11 @@ begin
   TestLogColors;
  // LogMessage('╚══════════════════════════════════════════════════════════════╝');
   initializeDrive;
-
+  lVersion.caption := 'Application Version ' + SetVersion('Application Version : ', ParamStr(0))+ '  ';
   if lbdrive.Items.Count >0 then
     mnuBOSServices.Caption := 'BOS V ' + Setversion('BOS Version : ', FRecConfig.PathBOS);
 
-  lVersion.caption := 'Application Version ' + SetVersion('Application Version : ', ParamStr(0));
+
 
 end;
 
@@ -469,6 +478,10 @@ begin
   BOSVersion := GetFileVersion(AExeName);
   Result := BOSVersion.Major.ToString + '.' + BOSVersion.Minor.ToString +
             '.' + BOSVersion.Release.ToString + '.' + BOSVersion.Build.ToString;
+  eMajor.Value   := BOSVersion.Major;
+  eMinor.Value   := BOSVersion.Minor;
+  eRelease.Value := BOSVersion.Release;
+  eBuild.Value   := BOSVersion.Build;
   LogMessage(ACaption + Result);
 end;
 
@@ -1139,6 +1152,42 @@ procedure TfrmTrayMain.CDSPathAfterPost(DataSet: TDataSet);
 begin
   CDSPath.MergeChangeLog;
   CDSPath.SaveToFile(FDBFile, dfXMLUTF8);
+end;
+
+procedure TfrmTrayMain.ChangeDprojVersion(aMajor, aMinor, aRelease, aBuild,
+  aFileVersion: string);
+var
+  DprojParser : TDprojParser;
+  lproj : IXMLProjectType;
+  i : integer;
+  lPathsArray: TArray<string>;
+  lPath: string;
+begin
+  lPathsArray := FRecConfig.AppGroup.Split([',']);
+
+  for lPath in lPathsArray do
+  begin
+    lproj := Untitled1.LoadProject(lPath);
+    for i := 0 to lproj.ItemGroup.Count -1 do
+    begin
+    DprojParser := TDprojParser.Create;
+      try
+        DprojParser.DprojFile :=  IncludeTrailingPathDelimiter( ExtractFilePath(lPath) ) + lproj.ItemGroup[i].Include;
+        DprojParser.Major := aMajor;
+        DprojParser.Minor := aMinor;
+        DprojParser.Release := aRelease;
+        DprojParser.Build := aBuild;
+        DprojParser.VersionString := aFileVersion;
+        DprojParser.ChangeVersion(eAdditionalVersionInfo.Text);
+      finally
+        DprojParser.Free;
+      end;
+    end;
+  end;
+
+  LogMessage('Version Info Updated!', lmtInfo);
+
+
 end;
 
 procedure TfrmTrayMain.InitializeLogging;

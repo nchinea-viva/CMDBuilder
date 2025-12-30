@@ -33,7 +33,9 @@ uses
   DECHash in 'Encryption\Part_I\DECHash.pas',
   DECRandom in 'Encryption\Part_I\DECRandom.pas',
   DECUtil in 'Encryption\Part_I\DECUtil.pas',
-  SyntaxHighlighter in 'SyntaxHighlighter.pas';
+  SyntaxHighlighter in 'SyntaxHighlighter.pas',
+  UnParseDproj in 'UnParseDproj.pas',
+  Untitled1 in 'Untitled1.pas';
 
 {$R *.res}
 var
@@ -87,7 +89,7 @@ begin
     Application.MainFormOnTaskbar := False; // Non mostrare nella taskbar
     Application.Title := 'Choice Builder - System Tray Build Manager';
     Application.CreateForm(TfrmTrayMain, frmTrayMain);
-    Application.Run;
+  Application.Run;
   finally
     ReleaseMutex(lMutexHandle);
     CloseHandle(lMutexHandle);

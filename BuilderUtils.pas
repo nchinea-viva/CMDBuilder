@@ -62,15 +62,16 @@ type
     FOvwTools   : String;
     FXlsConv    : String;
     FCaseStudio : String;
-    FSqlServer: String;
+    FSqlServer  : String;
+    FAppGroup   : String;
     class var FInstance: TRecConfig;
-    Constructor Create(APathBOS, APathAPPBOS, APathAlone, AOvwTools, AXlsConv, ACaseStudio, ASqlServer: String); Reintroduce;
+    Constructor Create(APathBOS, APathAPPBOS, APathAlone, AOvwTools, AXlsConv, ACaseStudio, ASqlServer, AAppGroup: String); Reintroduce;
   public
 
     Destructor Destroy;
     class function GetInstance: TRecConfig;overload;
-    class function GetInstance(APathBOS, APathAPPBOS, APathAlone, AOvwTools, AXlsConv, ACaseStudio, ASqlServer: String): TRecConfig; overload;
-    function SetValues(APathBOS, APathAPPBOS, APathAlone, AOvwTools, AXlsConv, ACaseStudio, ASqlServer: String): TRecConfig;
+    class function GetInstance(APathBOS, APathAPPBOS, APathAlone, AOvwTools, AXlsConv, ACaseStudio, ASqlServer, AAppGroup: String): TRecConfig; overload;
+    function SetValues(APathBOS, APathAPPBOS, APathAlone, AOvwTools, AXlsConv, ACaseStudio, ASqlServer, AAppGroup: String): TRecConfig;
     class procedure ReleaseInstance;
 
     Property PathBOS    : String read FPathBOS write FPathBOS;
@@ -80,6 +81,7 @@ type
     Property XlsConv    : String read FXlsConv write FXlsConv;
     Property CaseStudio : String read FCaseStudio write FCaseStudio;
     Property SqlServer  : String read FSqlServer write FSqlServer;
+    Property AppGroup   : String read FAppGroup write FAppGroup;
   end;
 
   function KillProcessByName(const ProcessName: string): Boolean;
@@ -297,7 +299,7 @@ end;
 { TRecConfig }
 
 constructor TRecConfig.Create(APathBOS, APathAPPBOS, APathAlone, AOvwTools,
-  AXlsConv, ACaseStudio, ASqlServer: String);
+  AXlsConv, ACaseStudio, ASqlServer, AAppGroup: String);
 begin
   Inherited Create;
   FPathBOS    := APathBOS;
@@ -307,6 +309,7 @@ begin
   FXlsConv    := AXlsConv;
   FCaseStudio := ACaseStudio;
   FSqlServer  := ASqlServer;
+  FAppGroup   := AAppGroup;
 end;
 
 destructor TRecConfig.Destroy;
@@ -318,14 +321,14 @@ end;
 class function TRecConfig.GetInstance: TRecConfig;
 begin
   if FInstance = nil then
-    FInstance := TRecConfig.Create('', '', '', '', '', '', '');
+    FInstance := TRecConfig.Create('', '', '', '', '', '', '', '');
   Result := FInstance;
 end;
 
-class function TRecConfig.GetInstance(APathBOS, APathAPPBOS, APathAlone, AOvwTools, AXlsConv, ACaseStudio, ASqlServer: String): TRecConfig;
+class function TRecConfig.GetInstance(APathBOS, APathAPPBOS, APathAlone, AOvwTools, AXlsConv, ACaseStudio, ASqlServer, AAppGroup: String): TRecConfig;
 begin
   if FInstance = nil then
-    FInstance := TRecConfig.Create(APathBOS, APathAPPBOS, APathAlone, AOvwTools, AXlsConv, ACaseStudio, ASqlServer);
+    FInstance := TRecConfig.Create(APathBOS, APathAPPBOS, APathAlone, AOvwTools, AXlsConv, ACaseStudio, ASqlServer, AAppGroup);
   Result := FInstance;
 end;
 
@@ -339,7 +342,7 @@ begin
 end;
 
 function TRecConfig.SetValues(APathBOS, APathAPPBOS, APathAlone,
-  AOvwTools, AXlsConv, ACaseStudio, ASqlServer: String): TRecConfig;
+  AOvwTools, AXlsConv, ACaseStudio, ASqlServer, AAppGroup: String): TRecConfig;
 begin
   FPathBOS    := APathBOS;
   FPathAPPBOS := APathAPPBOS;
@@ -348,6 +351,7 @@ begin
   FXlsConv    := AXlsConv;
   FCaseStudio := ACaseStudio;
   FSqlServer  := ASqlServer;
+  FAppGroup   := AAppGroup;
 end;
 
 

@@ -32,7 +32,7 @@ object frmTrayMain: TfrmTrayMain
       Left = 0
       Top = 0
       Width = 653
-      Height = 181
+      Height = 190
       Align = alTop
       BevelOuter = bvLowered
       TabOrder = 0
@@ -68,6 +68,41 @@ object frmTrayMain: TfrmTrayMain
         Width = 65
         Height = 13
         Caption = 'Mapped drive'
+      end
+      object Label2: TLabel
+        Left = 139
+        Top = 138
+        Width = 27
+        Height = 13
+        Caption = 'Major'
+      end
+      object Label3: TLabel
+        Left = 195
+        Top = 137
+        Width = 26
+        Height = 13
+        Caption = 'Minor'
+      end
+      object Label4: TLabel
+        Left = 243
+        Top = 136
+        Width = 38
+        Height = 13
+        Caption = 'Release'
+      end
+      object Label5: TLabel
+        Left = 291
+        Top = 136
+        Width = 22
+        Height = 13
+        Caption = 'Build'
+      end
+      object Label6: TLabel
+        Left = 344
+        Top = 137
+        Width = 207
+        Height = 13
+        Caption = 'Version Info in Company Name Field (V_XX)'
       end
       object cbConfiguration: TComboBox
         Left = 16
@@ -207,9 +242,9 @@ object frmTrayMain: TfrmTrayMain
         OnClick = GestSubClick
       end
       object btDBVersion: TcxButton
-        Left = 152
+        Left = 136
         Top = 101
-        Width = 200
+        Width = 81
         Height = 25
         Caption = 'DB Version'
         TabOrder = 11
@@ -267,9 +302,9 @@ object frmTrayMain: TfrmTrayMain
         TextHint = 'Session ID'
       end
       object brChangePwd: TcxButton
-        Left = 152
-        Top = 129
-        Width = 200
+        Left = 223
+        Top = 101
+        Width = 129
         Height = 25
         Caption = 'Change password'
         TabOrder = 15
@@ -382,24 +417,73 @@ object frmTrayMain: TfrmTrayMain
           TabOrder = 2
         end
       end
-      object cxButton1: TcxButton
-        Left = 408
-        Top = 136
-        Width = 75
+      object btnUpdVersion: TcxButton
+        Left = 560
+        Top = 153
+        Width = 88
         Height = 25
-        Caption = 'cxButton1'
+        Caption = 'Update Version'
         TabOrder = 17
-        OnClick = cxButton1Click
+        OnClick = btnUpdVersionClick
+      end
+      object eMajor: TSpinEdit
+        Left = 139
+        Top = 155
+        Width = 46
+        Height = 22
+        AutoSize = False
+        MaxValue = 0
+        MinValue = 0
+        TabOrder = 18
+        Value = 7
+      end
+      object eMinor: TSpinEdit
+        Left = 195
+        Top = 155
+        Width = 45
+        Height = 22
+        MaxValue = 0
+        MinValue = 0
+        TabOrder = 19
+        Value = 4
+      end
+      object eRelease: TSpinEdit
+        Left = 243
+        Top = 155
+        Width = 45
+        Height = 22
+        MaxValue = 0
+        MinValue = 0
+        TabOrder = 20
+        Value = 30
+      end
+      object eBuild: TSpinEdit
+        Left = 291
+        Top = 155
+        Width = 45
+        Height = 22
+        MaxValue = 0
+        MinValue = 0
+        TabOrder = 21
+        Value = 45
+      end
+      object eAdditionalVersionInfo: TEdit
+        Left = 344
+        Top = 156
+        Width = 210
+        Height = 21
+        TabOrder = 22
       end
     end
     object pnlStatus: TPanel
       Left = 0
-      Top = 181
+      Top = 190
       Width = 653
       Height = 40
       Align = alTop
       BevelOuter = bvLowered
       TabOrder = 1
+      ExplicitTop = 181
       object lblStatus: TLabel
         Left = 8
         Top = 8
@@ -466,12 +550,14 @@ object frmTrayMain: TfrmTrayMain
     end
     object pnlLog: TPanel
       Left = 0
-      Top = 221
+      Top = 230
       Width = 653
-      Height = 428
+      Height = 419
       Align = alClient
       BevelOuter = bvLowered
       TabOrder = 2
+      ExplicitTop = 221
+      ExplicitHeight = 428
       object lblLog: TLabel
         Left = 1
         Top = 1
@@ -491,7 +577,7 @@ object frmTrayMain: TfrmTrayMain
         Left = 1
         Top = 14
         Width = 651
-        Height = 413
+        Height = 404
         Align = alClient
         Color = clBlack
         Font.Charset = ANSI_CHARSET
@@ -505,6 +591,7 @@ object frmTrayMain: TfrmTrayMain
         TabOrder = 0
         WordWrap = False
         Zoom = 100
+        ExplicitHeight = 413
       end
     end
   end
@@ -41992,7 +42079,7 @@ object frmTrayMain: TfrmTrayMain
   object cxImageList: TcxImageList
     SourceDPI = 96
     FormatVersion = 1
-    DesignInfo = 15794580
+    DesignInfo = 20513244
     ImageInfo = <
       item
         ImageClass = 'TdxPNGImage'
@@ -42217,7 +42304,7 @@ object frmTrayMain: TfrmTrayMain
       ''
       ''
       '')
-    Left = 312
-    Top = 208
+    Left = 384
+    Top = 328
   end
 end
