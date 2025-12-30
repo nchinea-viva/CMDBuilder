@@ -208,8 +208,6 @@ object FGestSubst: TFGestSubst
     object tsConfig: TTabSheet
       Caption = 'Configuration'
       ImageIndex = 1
-      ExplicitLeft = -132
-      ExplicitTop = 6
       object Label4: TLabel
         Left = 43
         Top = 399
@@ -688,9 +686,9 @@ object FGestSubst: TFGestSubst
         Height = 21
         TabOrder = 18
       end
-      object btnCaseStudio: TcxButton
+      object btnLogPath: TcxButton
         Tag = 7
-        Left = 535
+        Left = 531
         Top = 168
         Width = 36
         Height = 25

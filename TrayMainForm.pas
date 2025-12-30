@@ -15,6 +15,7 @@ uses
   , BuilderUtils
   , BuildConfigManager
   , SQLServerDetection
+  , SoapTestForm
   , ConfigWizardForm, System.ImageList, Vcl.ImgList, cxImageList,
   FireDAC.Stan.Intf, FireDAC.Stan.Option, FireDAC.Stan.Error, FireDAC.UI.Intf,
   FireDAC.Phys.Intf, FireDAC.Stan.Def, FireDAC.Stan.Pool, FireDAC.Stan.Async,
@@ -104,6 +105,7 @@ type
     gbEditor: TGroupBox;
     Case1: TMenuItem;
     lVersion: TLabel;
+    cxButton1: TcxButton;
     procedure FormCreate(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
@@ -133,6 +135,7 @@ type
     procedure btSessionClick(Sender: TObject);
     procedure mnuDatabaseClick(Sender: TObject);
     procedure btXMLClick(Sender: TObject);
+    procedure cxButton1Click(Sender: TObject);
   private
     FStartTime: TDateTime;
     FLogFileName: string;
@@ -294,6 +297,18 @@ begin
     FreeAndNil(Connection);
   end;
 
+end;
+
+procedure TfrmTrayMain.cxButton1Click(Sender: TObject);
+Var lFormChange:  TFormSoapTest;
+begin
+  lFormChange := TFormSoapTest.Create(Nil);
+  try
+  //  lFormChange.SqlServer := FRecConfig.SqlServer;
+    lFormChange.ShowModal;
+  finally
+    lFormChange.Free;
+  end;
 end;
 
 procedure TfrmTrayMain.cxButton2Click(Sender: TObject);
