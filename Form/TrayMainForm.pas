@@ -477,11 +477,13 @@ Var BOSVersion: TFileVersionInfo;
 begin
   BOSVersion := GetFileVersion(AExeName);
   Result := BOSVersion.Major.ToString + '.' + BOSVersion.Minor.ToString +
-            '.' + BOSVersion.Release.ToString + '.' + BOSVersion.Build.ToString;
+            '.' + BOSVersion.Release.ToString + '.' + BOSVersion.Build.ToString +
+            ' ' + BOSVersion.ProductName;
   eMajor.Value   := BOSVersion.Major;
   eMinor.Value   := BOSVersion.Minor;
   eRelease.Value := BOSVersion.Release;
   eBuild.Value   := BOSVersion.Build;
+  eAdditionalVersionInfo.Text := BOSVersion.ProductName;
   LogMessage(ACaption + Result);
 end;
 
@@ -972,7 +974,7 @@ begin
 
   if (lResponse = mrYes) then
   begin
-    if lDelphi then
+    if lDelphi and chkDelphiOff.Checked then
     begin
       LogMessage('=== Delphi running will be killed  ===');
       KillProcessByName('BDS.exe');

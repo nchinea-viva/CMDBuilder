@@ -136,7 +136,7 @@
         <DCC_DcpOutput>\DCU</DCC_DcpOutput>
         <DCC_ExeOutput>.\Bin</DCC_ExeOutput>
         <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
-        <VerInfo_Keys>CompanyName=Vivaticket ;FileDescription=$(MSBuildProjectName);FileVersion=3.1.2.7;InternalName=Choice Builder;LegalCopyright=Vivaticket ;LegalTrademarks=;OriginalFilename=;ProductName=$(MSBuildProjectName);ProductVersion=2.2.2.5;Comments=;ProgramID=com.embarcadero.$(MSBuildProjectName)</VerInfo_Keys>
+        <VerInfo_Keys>CompanyName=Vivaticket ;FileDescription=$(MSBuildProjectName);FileVersion=3.1.2.7;InternalName=Choice Builder;LegalCopyright=Vivaticket ;LegalTrademarks=;OriginalFilename=;ProductName=$(MSBuildProjectName);ProductVersion=3.1.2.7;Comments=;ProgramID=com.embarcadero.$(MSBuildProjectName);Vivaticket=custom key</VerInfo_Keys>
         <DCC_DcuOutput>\DCU</DCC_DcuOutput>
         <DCC_Define>madExcept;LeakChecking;$(DCC_Define)</DCC_Define>
         <DCC_UnitSearchPath>S:\work\Source\Packages\OtnCL7\LockBox\source;$(DCC_UnitSearchPath)</DCC_UnitSearchPath>
