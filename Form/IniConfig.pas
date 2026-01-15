@@ -82,6 +82,12 @@ TLogCategories = (
     eNewLogFolePath: TEdit;
     btnLogPath: TcxButton;
     OpenDialog1: TOpenDialog;
+    ckStackTrace: TCheckBox;
+    Label17: TLabel;
+    eRedis: TEdit;
+    ckNewStackTrace: TCheckBox;
+    eNewRedis: TEdit;
+    Label18: TLabel;
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
@@ -131,6 +137,10 @@ begin
   eUDPPort.Text     := FIniAppConfig.ReadInteger('LOG', 'UDPPORT', 23456).ToString;
   ckUDPLog.Checked  := FIniAppConfig.ReadInteger('LOG', 'UDPLog', 0) = 1;
   eCodeSite.Text    := FIniAppConfig.ReadString('LOGGER', 'CATEGORIES', '');
+  ckStackTrace.Checked  := FIniAppConfig.ReadInteger('STACKTRACE', 'ACTIVE', 0) = 1;
+  eRedis.text       := FIniAppConfig.ReadString('REDIS', 'BaseUrl', '');
+
+
   FLogCategories.Delimiter := ',';
   FLogCategories.DelimitedText := TRegEx.Replace(eCodeSite.Text, ' *, *', ',');
 
@@ -233,6 +243,13 @@ begin
   FIniAppConfig.WriteInteger('LOGGER', 'LOGGER_PRO_ACTIVE', Integer(eNewLogFolePath.Text <> ''));
   FIniAppConfig.WriteString('LOGGER','LOG_FILE_PATH', eNewLogFolePath.Text);
 
+  If eNewRedis.Text <> '' then
+    FIniAppConfig.WriteString('REDIS', 'BaseUrl', eNewRedis.Text);
+  FIniAppConfig.WriteInteger('STACKTRACE', 'ACTIVE', INTEGER(ckNewStackTrace.Checked));
+
+  FIniAppConfig.SaveToFile;
+
+  Close;
 end;
 
 procedure TFIniConfig.cbCategoriesClickCheck(Sender: TObject);

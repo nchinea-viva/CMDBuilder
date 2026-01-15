@@ -2,7 +2,7 @@ object FIniConfig: TFIniConfig
   Left = 0
   Top = 0
   Caption = 'App BOS Service Ini Config'
-  ClientHeight = 519
+  ClientHeight = 615
   ClientWidth = 737
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -21,22 +21,20 @@ object FIniConfig: TFIniConfig
     Left = 0
     Top = 0
     Width = 737
-    Height = 519
+    Height = 615
     Align = alClient
     BevelInner = bvLowered
     TabOrder = 0
-    ExplicitWidth = 729
-    ExplicitHeight = 466
+    ExplicitHeight = 519
     object Panel1: TPanel
       Left = 2
-      Top = 476
+      Top = 572
       Width = 733
       Height = 41
       Align = alBottom
       BevelInner = bvLowered
       TabOrder = 0
-      ExplicitTop = 423
-      ExplicitWidth = 725
+      ExplicitTop = 476
       object btnSaveConfig: TcxButton
         Left = 8
         Top = 8
@@ -54,7 +52,7 @@ object FIniConfig: TFIniConfig
         OnClick = btnSaveConfigClick
       end
       object btClose: TcxButton
-        Left = 553
+        Left = 561
         Top = 8
         Width = 166
         Height = 25
@@ -101,15 +99,16 @@ object FIniConfig: TFIniConfig
       Left = 2
       Top = 2
       Width = 319
-      Height = 474
+      Height = 570
       Align = alLeft
       Caption = 'Panel2'
       TabOrder = 1
+      ExplicitHeight = 474
       object gbConfig: TGroupBox
         Left = 1
         Top = 1
         Width = 317
-        Height = 212
+        Height = 255
         Margins.Left = 6
         Align = alTop
         Caption = 'Current Configuration'
@@ -123,7 +122,6 @@ object FIniConfig: TFIniConfig
         ParentColor = False
         ParentFont = False
         TabOrder = 0
-        ExplicitWidth = 309
         object Label1: TLabel
           Left = 8
           Top = 25
@@ -217,6 +215,19 @@ object FIniConfig: TFIniConfig
           Font.Style = []
           ParentFont = False
         end
+        object Label17: TLabel
+          Left = 8
+          Top = 229
+          Width = 26
+          Height = 13
+          Caption = 'Redis'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ParentFont = False
+        end
         object eDB: TEdit
           Left = 72
           Top = 77
@@ -293,6 +304,7 @@ object FIniConfig: TFIniConfig
           Width = 97
           Height = 17
           Caption = 'UDP log'
+          Enabled = False
           TabOrder = 5
         end
         object eCodeSite: TEdit
@@ -323,12 +335,35 @@ object FIniConfig: TFIniConfig
           ReadOnly = True
           TabOrder = 7
         end
+        object ckStackTrace: TCheckBox
+          Left = 72
+          Top = 206
+          Width = 97
+          Height = 17
+          Caption = 'Stack Trace'
+          Enabled = False
+          TabOrder = 8
+        end
+        object eRedis: TEdit
+          Left = 72
+          Top = 226
+          Width = 240
+          Height = 21
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ParentFont = False
+          ReadOnly = True
+          TabOrder = 9
+        end
       end
       object GroupBox2: TGroupBox
         Left = 1
-        Top = 213
+        Top = 256
         Width = 317
-        Height = 260
+        Height = 313
         Align = alClient
         Caption = 'New Configuration'
         Color = 12112051
@@ -341,9 +376,7 @@ object FIniConfig: TFIniConfig
         ParentColor = False
         ParentFont = False
         TabOrder = 1
-        ExplicitTop = 188
-        ExplicitWidth = 309
-        ExplicitHeight = 232
+        ExplicitHeight = 326
         object Label5: TLabel
           Left = 8
           Top = 22
@@ -441,6 +474,19 @@ object FIniConfig: TFIniConfig
           Width = 62
           Height = 13
           Caption = 'LOG file path'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ParentFont = False
+        end
+        object Label18: TLabel
+          Left = 8
+          Top = 283
+          Width = 26
+          Height = 13
+          Caption = 'Redis'
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -11
@@ -592,22 +638,44 @@ object FIniConfig: TFIniConfig
           TabOrder = 8
           OnClick = btnLogPathClick
         end
+        object ckNewStackTrace: TCheckBox
+          Left = 72
+          Top = 260
+          Width = 97
+          Height = 17
+          Caption = 'Stack Trace'
+          TabOrder = 9
+        end
+        object eNewRedis: TEdit
+          Left = 72
+          Top = 280
+          Width = 240
+          Height = 21
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ParentFont = False
+          ReadOnly = True
+          TabOrder = 10
+        end
       end
     end
     object Panel3: TPanel
       Left = 321
       Top = 2
       Width = 414
-      Height = 474
+      Height = 570
       Align = alClient
       Caption = 'Panel3'
       TabOrder = 2
-      ExplicitLeft = 313
+      ExplicitHeight = 474
       object ListView1: TListView
         Left = 1
         Top = 42
         Width = 412
-        Height = 431
+        Height = 527
         Align = alClient
         Columns = <
           item
@@ -628,8 +696,7 @@ object FIniConfig: TFIniConfig
         TabOrder = 0
         ViewStyle = vsReport
         OnSelectItem = ListView1SelectItem
-        ExplicitLeft = 6
-        ExplicitWidth = 407
+        ExplicitHeight = 431
       end
       object Panel4: TPanel
         Left = 1
