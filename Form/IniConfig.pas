@@ -88,6 +88,10 @@ TLogCategories = (
     ckNewStackTrace: TCheckBox;
     eNewRedis: TEdit;
     Label18: TLabel;
+    Label19: TLabel;
+    cbNewFlexCache: TComboBox;
+    Label20: TLabel;
+    cbFlexCache: TComboBox;
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
@@ -136,14 +140,15 @@ begin
   eUDPServer.Text   := FIniAppConfig.ReadString('LOG', 'UDPServer', '');
   eUDPPort.Text     := FIniAppConfig.ReadInteger('LOG', 'UDPPORT', 23456).ToString;
   ckUDPLog.Checked  := FIniAppConfig.ReadInteger('LOG', 'UDPLog', 0) = 1;
+  ckNewUDPLog.Checked  :=  ckUDPLog.Checked;
   eCodeSite.Text    := FIniAppConfig.ReadString('LOGGER', 'CATEGORIES', '');
   ckStackTrace.Checked  := FIniAppConfig.ReadInteger('STACKTRACE', 'ACTIVE', 0) = 1;
+  ckNewStackTrace.Checked  := ckStackTrace.Checked;
   eRedis.text       := FIniAppConfig.ReadString('REDIS', 'BaseUrl', '');
-
-
+  cbFlexCache.ItemIndex := FIniAppConfig.ReadInteger('FLEXIBLECACHE', 'MODE', 0);
+  cbNewFlexCache.ItemIndex :=   cbFlexCache.ItemIndex;
   FLogCategories.Delimiter := ',';
   FLogCategories.DelimitedText := TRegEx.Replace(eCodeSite.Text, ' *, *', ',');
-
 end;
 
 procedure TFIniConfig.FillCheckBox;
@@ -245,7 +250,12 @@ begin
 
   If eNewRedis.Text <> '' then
     FIniAppConfig.WriteString('REDIS', 'BaseUrl', eNewRedis.Text);
-  FIniAppConfig.WriteInteger('STACKTRACE', 'ACTIVE', INTEGER(ckNewStackTrace.Checked));
+
+  if ckNewStackTrace.Checked <> ckStackTrace.Checked then
+    FIniAppConfig.WriteInteger('STACKTRACE', 'ACTIVE', INTEGER(ckNewStackTrace.Checked));
+
+  if cbNewFlexCache.ItemIndex >=0 then
+    FIniAppConfig.WriteInteger('FLEXIBLECACHE', 'MODE', cbNewFlexCache.ItemIndex);
 
   FIniAppConfig.SaveToFile;
 

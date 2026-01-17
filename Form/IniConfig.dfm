@@ -2,8 +2,8 @@ object FIniConfig: TFIniConfig
   Left = 0
   Top = 0
   Caption = 'App BOS Service Ini Config'
-  ClientHeight = 615
-  ClientWidth = 737
+  ClientHeight = 671
+  ClientWidth = 775
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -20,21 +20,23 @@ object FIniConfig: TFIniConfig
   object pFondo: TPanel
     Left = 0
     Top = 0
-    Width = 737
-    Height = 615
+    Width = 775
+    Height = 671
     Align = alClient
     BevelInner = bvLowered
     TabOrder = 0
-    ExplicitHeight = 519
+    ExplicitWidth = 737
+    ExplicitHeight = 615
     object Panel1: TPanel
       Left = 2
-      Top = 572
-      Width = 733
+      Top = 628
+      Width = 771
       Height = 41
       Align = alBottom
       BevelInner = bvLowered
       TabOrder = 0
-      ExplicitTop = 476
+      ExplicitTop = 572
+      ExplicitWidth = 733
       object btnSaveConfig: TcxButton
         Left = 8
         Top = 8
@@ -99,16 +101,16 @@ object FIniConfig: TFIniConfig
       Left = 2
       Top = 2
       Width = 319
-      Height = 570
+      Height = 626
       Align = alLeft
       Caption = 'Panel2'
       TabOrder = 1
-      ExplicitHeight = 474
+      ExplicitHeight = 667
       object gbConfig: TGroupBox
         Left = 1
         Top = 1
         Width = 317
-        Height = 255
+        Height = 286
         Margins.Left = 6
         Align = alTop
         Caption = 'Current Configuration'
@@ -221,6 +223,19 @@ object FIniConfig: TFIniConfig
           Width = 26
           Height = 13
           Caption = 'Redis'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ParentFont = False
+        end
+        object Label20: TLabel
+          Left = 10
+          Top = 260
+          Width = 56
+          Height = 13
+          Caption = 'Flex Cache '
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -11
@@ -358,12 +373,31 @@ object FIniConfig: TFIniConfig
           ReadOnly = True
           TabOrder = 9
         end
+        object cbFlexCache: TComboBox
+          Left = 72
+          Top = 257
+          Width = 240
+          Height = 21
+          AutoDropDown = True
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ParentFont = False
+          TabOrder = 10
+          Items.Strings = (
+            'Disable'
+            'Only Internal (Dict for Each Client)'
+            'Only Redis'
+            'Complete (Internal + Redis')
+        end
       end
       object GroupBox2: TGroupBox
         Left = 1
-        Top = 256
+        Top = 287
         Width = 317
-        Height = 313
+        Height = 338
         Align = alClient
         Caption = 'New Configuration'
         Color = 12112051
@@ -376,7 +410,8 @@ object FIniConfig: TFIniConfig
         ParentColor = False
         ParentFont = False
         TabOrder = 1
-        ExplicitHeight = 326
+        ExplicitTop = 255
+        ExplicitHeight = 410
         object Label5: TLabel
           Left = 8
           Top = 22
@@ -469,7 +504,7 @@ object FIniConfig: TFIniConfig
           ParentFont = False
         end
         object Label16: TLabel
-          Left = 4
+          Left = 8
           Top = 238
           Width = 62
           Height = 13
@@ -487,6 +522,19 @@ object FIniConfig: TFIniConfig
           Width = 26
           Height = 13
           Caption = 'Redis'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ParentFont = False
+        end
+        object Label19: TLabel
+          Left = 10
+          Top = 311
+          Width = 56
+          Height = 13
+          Caption = 'Flex Cache '
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -11
@@ -579,7 +627,13 @@ object FIniConfig: TFIniConfig
           Height = 79
           OnClickCheck = cbCategoriesClickCheck
           Columns = 2
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'Tahoma'
+          Font.Style = []
           ItemHeight = 13
+          ParentFont = False
           Sorted = True
           TabOrder = 6
         end
@@ -660,22 +714,41 @@ object FIniConfig: TFIniConfig
           ReadOnly = True
           TabOrder = 10
         end
+        object cbNewFlexCache: TComboBox
+          Left = 72
+          Top = 308
+          Width = 240
+          Height = 21
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ParentFont = False
+          TabOrder = 11
+          Items.Strings = (
+            'Disable'
+            'Only Internal (Dict for Each Client)'
+            'Only Redis'
+            'Complete (Internal + Redis')
+        end
       end
     end
     object Panel3: TPanel
       Left = 321
       Top = 2
-      Width = 414
-      Height = 570
+      Width = 452
+      Height = 626
       Align = alClient
       Caption = 'Panel3'
       TabOrder = 2
-      ExplicitHeight = 474
+      ExplicitWidth = 414
+      ExplicitHeight = 570
       object ListView1: TListView
         Left = 1
         Top = 42
-        Width = 412
-        Height = 527
+        Width = 450
+        Height = 583
         Align = alClient
         Columns = <
           item
@@ -696,16 +769,18 @@ object FIniConfig: TFIniConfig
         TabOrder = 0
         ViewStyle = vsReport
         OnSelectItem = ListView1SelectItem
-        ExplicitHeight = 431
+        ExplicitWidth = 412
+        ExplicitHeight = 527
       end
       object Panel4: TPanel
         Left = 1
         Top = 1
-        Width = 412
+        Width = 450
         Height = 41
         Align = alTop
         Caption = 'Panel4'
         TabOrder = 1
+        ExplicitWidth = 412
         object Label4: TLabel
           Left = 7
           Top = 10
